@@ -217,15 +217,25 @@ if (landing) {
   if (gcPopup && gcPopupDialog && gcPopupOpeners.length) {
     const gcWidgets = {
       month: {
+        mount: gcWidgetMounts.month,
+        scriptId: "bef41d450f0b2e4024017ba236ec0881c80ffbf7",
         startEvent: "StartWidgetbef41d450f0b2e4024017ba236ec0881c80ffbf7",
+        src: "https://academy.topcheese.online/pl/lite/widget/script?id=1572173",
         title: "Месячная подписка",
         subtitle: "",
       },
       year: {
+        mount: gcWidgetMounts.year,
+        scriptId: "1070c238acc85374e6b33ab9a01978184aa73c74",
         startEvent: "StartWidget1070c238acc85374e6b33ab9a01978184aa73c74",
+        src: "https://academy.topcheese.online/pl/lite/widget/script?id=1572217",
         title: "Годовая подписка",
         subtitle: "",
       },
+    };
+    const gcWidgetLoaded = {
+      month: false,
+      year: false,
     };
     const gcPopupDefaultTitle = gcPopupTitle?.innerHTML || "";
     const gcPopupDefaultText = gcPopupText?.textContent || "";
@@ -265,6 +275,25 @@ if (landing) {
 
       gcPopup.scrollTop = 0;
       gcPopupDialog.scrollTop = 0;
+    };
+
+    const loadGcWidget = (plan) => {
+      const widget = gcWidgets[plan];
+      if (!widget || !widget.mount) return;
+
+      if (gcWidgetLoaded[plan]) {
+        document.dispatchEvent(new Event(widget.startEvent));
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.id = widget.scriptId;
+      script.src = widget.src;
+      script.addEventListener("load", () => {
+        gcWidgetLoaded[plan] = true;
+        document.dispatchEvent(new Event(widget.startEvent));
+      });
+      widget.mount.appendChild(script);
     };
 
     const openGcPopup = () => {
@@ -310,11 +339,7 @@ if (landing) {
         const plan = button.dataset.plan;
         if (!plan) return;
         setGcPopupView("form", plan);
-        window.requestAnimationFrame(() => {
-          const widget = gcWidgets[plan];
-          if (!widget?.startEvent) return;
-          document.dispatchEvent(new Event(widget.startEvent));
-        });
+        window.requestAnimationFrame(() => loadGcWidget(plan));
       });
     });
 
