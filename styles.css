@@ -1711,9 +1711,9 @@ body.body--modal-open {
   inset: 0;
   z-index: 120;
   display: grid;
-  justify-items: center;
-  align-items: center;
-  padding: 18px;
+  justify-items: stretch;
+  align-items: end;
+  padding: 0;
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
@@ -1737,14 +1737,14 @@ body.body--modal-open {
 .gc-popup__dialog {
   position: relative;
   z-index: 1;
-  width: min(100%, 960px);
-  max-height: min(92vh, 980px);
+  width: 100%;
+  max-height: min(94svh, 980px);
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
-  gap: 16px;
-  padding: 24px 20px 20px;
+  gap: 12px;
+  padding: 18px 14px 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
+  border-radius: 24px 24px 0 0;
   background:
     radial-gradient(circle at top, rgba(255, 190, 89, 0.07), transparent 34%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0) 30%),
@@ -1763,30 +1763,24 @@ body.body--modal-open {
 }
 
 .gc-popup__dialog::before {
-  inset: 0;
-  z-index: -2;
-  opacity: 0.42;
-  background-image:
-    linear-gradient(90deg, rgba(236, 232, 223, 0.014) 1px, transparent 0),
-    linear-gradient(180deg, rgba(236, 232, 223, 0.014) 1px, transparent 0);
-  background-size: 10px 10px;
+  display: none;
 }
 
 .gc-popup__dialog::after {
-  inset: 0 auto auto 26px;
+  inset: 0 auto auto 18px;
   z-index: -1;
-  width: 88px;
+  width: 56px;
   height: 2px;
-  background: rgba(255, 190, 89, 0.76);
-  box-shadow: 0 0 16px rgba(255, 190, 89, 0.16);
+  background: rgba(255, 190, 89, 0.64);
+  box-shadow: 0 0 12px rgba(255, 190, 89, 0.12);
 }
 
 .gc-popup__close {
   position: absolute;
-  top: 12px;
+  top: calc(env(safe-area-inset-top, 0px) + 10px);
   right: 12px;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
   border: 0;
@@ -1800,8 +1794,9 @@ body.body--modal-open {
 
 .gc-popup__header {
   display: grid;
-  gap: 8px;
-  padding-right: 48px;
+  gap: 7px;
+  padding-top: calc(env(safe-area-inset-top, 0px) + 6px);
+  padding-right: 52px;
 }
 
 .gc-popup__back {
@@ -1813,7 +1808,7 @@ body.body--modal-open {
   border: 0;
   background: transparent;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
 }
@@ -1831,11 +1826,11 @@ body.body--modal-open {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(255, 255, 255, 0.56);
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -1852,12 +1847,12 @@ body.body--modal-open {
 .gc-popup__title {
   margin: 0;
   font-family: var(--font-display);
-  max-width: 13ch;
-  font-size: clamp(1.12rem, 2.45vw, 1.64rem);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  max-width: none;
+  font-size: clamp(1.28rem, 6.8vw, 1.72rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .gc-popup__title span {
@@ -1867,6 +1862,9 @@ body.body--modal-open {
 .gc-popup__text {
   margin: 0;
   color: var(--muted);
+  max-width: 24ch;
+  font-size: 0.88rem;
+  line-height: 1.35;
 }
 
 .gc-popup__text:empty {
@@ -1876,24 +1874,26 @@ body.body--modal-open {
 .gc-popup__body {
   position: relative;
   min-height: 0;
-  overflow: hidden;
+  overflow-x: visible;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   display: grid;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0) 50%),
-    rgba(255, 255, 255, 0.015);
-  padding: 12px;
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
 }
 
 .gc-popup--form-mode .gc-popup__dialog {
-  width: min(100%, 920px);
+  width: 100%;
   max-height: none;
   margin-block: 0;
-  padding: 64px 0 0;
+  min-height: 100svh;
+  padding: calc(env(safe-area-inset-top, 0px) + 10px) 0 0;
   border: 0;
   border-radius: 0;
-  background: transparent;
+  background: rgba(18, 18, 18, 0.98);
   box-shadow: none;
   overflow: visible;
   backdrop-filter: none;
@@ -1920,7 +1920,11 @@ body.body--modal-open {
 .gc-popup--form-mode .gc-popup__header {
   gap: 0;
   min-height: 0;
-  padding: 0 72px 10px 16px;
+  padding: 0 56px 10px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(18, 18, 18, 0.9));
 }
 
 .gc-popup--form-mode .gc-popup__eyebrow {
@@ -1957,7 +1961,7 @@ body.body--modal-open {
 }
 
 .gc-popup__view--form {
-  min-height: 100%;
+  min-height: 0;
   overflow: visible;
   border-radius: 0;
   background: transparent;
@@ -1965,34 +1969,33 @@ body.body--modal-open {
 
 .gc-popup__widget {
   min-height: 0;
+  width: 100%;
 }
 
 .gc-popup__plans {
   display: grid;
-  gap: 18px;
-  width: min(100%, 780px);
+  gap: 12px;
+  width: 100%;
   margin-inline: auto;
-  padding: 16px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0) 50%),
-    rgba(255, 255, 255, 0.018);
+  padding: 0;
+  border-radius: 0;
+  border: 0;
+  background: transparent;
 }
 
 .gc-plan-card {
   position: relative;
   display: grid;
   align-content: start;
-  gap: 18px;
+  gap: 12px;
   min-height: 0;
-  padding: 22px 20px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 16px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0) 48%),
     rgba(18, 20, 27, 0.96);
-  box-shadow: var(--shadow-panel);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
   overflow: hidden;
 }
 
@@ -2006,8 +2009,8 @@ body.body--modal-open {
 .gc-plan-card::before {
   content: "";
   position: absolute;
-  inset: 0 auto auto 20px;
-  width: 68px;
+  inset: 0 auto auto 16px;
+  width: 56px;
   height: 2px;
   background: rgba(255, 255, 255, 0.16);
 }
@@ -2017,36 +2020,30 @@ body.body--modal-open {
   box-shadow: 0 0 12px rgba(255, 190, 89, 0.14);
 }
 
-.gc-plan-card::after {
-  content: "";
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 24px;
-  height: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.gc-plan-card--accent::after {
-  border-top-color: rgba(255, 190, 89, 0.18);
-  border-right-color: rgba(255, 190, 89, 0.18);
-}
-
 .gc-plan-card__head {
   display: grid;
-  gap: 8px;
+  gap: 6px;
   justify-items: start;
   text-align: left;
 }
 
 .gc-plan-card__title {
-  max-width: 14ch;
+  max-width: none;
   font-family: var(--font-display);
-  font-size: clamp(1rem, 1.9vw, 1.22rem);
+  font-size: 1rem;
   font-weight: 700;
-  line-height: 1.12;
+  line-height: 1.04;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.gc-plan-card__term {
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -2060,14 +2057,14 @@ body.body--modal-open {
 
 .gc-plan-card__price {
   color: var(--accent-text);
-  font-size: clamp(1.34rem, 2.7vw, 1.72rem);
+  font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.02;
 }
 
 .gc-plan-card__old-price {
   color: rgba(255, 190, 89, 0.44);
-  font-size: 1rem;
+  font-size: 0.92rem;
   font-weight: 700;
   text-decoration: line-through;
 }
@@ -2076,17 +2073,17 @@ body.body--modal-open {
   display: grid;
   justify-items: center;
   align-content: start;
-  gap: 10px;
+  gap: 8px;
   min-height: 0;
   margin-top: 0;
   text-align: center;
 }
 
 .gc-plan-card__feature p {
-  max-width: 22ch;
+  max-width: none;
   color: var(--muted);
-  font-size: 0.94rem;
-  line-height: 1.45;
+  font-size: 0.88rem;
+  line-height: 1.35;
 }
 
 .gc-plan-card__icon {
@@ -2102,10 +2099,10 @@ body.body--modal-open {
 }
 
 .gc-plan-card__button {
-  width: fit-content;
-  min-width: 200px;
-  justify-self: center;
-  margin-top: auto;
+  width: 100%;
+  min-width: 0;
+  justify-self: stretch;
+  margin-top: 2px;
 }
 
 .gc-popup__widget {
@@ -2115,11 +2112,17 @@ body.body--modal-open {
   background: transparent;
   border: 0;
   box-shadow: none;
+  padding: 0 0 calc(env(safe-area-inset-bottom, 0px) + 24px);
 }
 
 .gc-popup__widget > * {
   width: 100% !important;
   max-width: 100%;
+}
+
+.gc-popup__widget * {
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .gc-popup__widget iframe,
@@ -2133,7 +2136,7 @@ body.body--modal-open {
 
 .gc-popup__widget:empty::before {
   content: "Загружаем форму...";
-  min-height: min(68vh, 560px);
+  min-height: min(56svh, 420px);
   display: grid;
   place-items: center;
   color: var(--muted);
@@ -2334,7 +2337,109 @@ body.body--modal-open {
   }
 
   .gc-popup {
+    justify-items: center;
+    align-items: center;
     padding: 28px;
+  }
+
+  .gc-popup__dialog {
+    width: min(100%, 960px);
+    max-height: min(92vh, 980px);
+    gap: 16px;
+    padding: 24px 20px 20px;
+    border-radius: 18px;
+  }
+
+  .gc-popup__header {
+    gap: 8px;
+    padding-top: 0;
+    padding-right: 48px;
+  }
+
+  .gc-popup__title {
+    max-width: 13ch;
+    font-size: clamp(1.12rem, 2.15vw, 1.5rem);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .gc-popup__text {
+    max-width: none;
+    font-size: 0.96rem;
+  }
+
+  .gc-popup__body {
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0) 50%),
+      rgba(255, 255, 255, 0.015);
+    padding: 12px;
+  }
+
+  .gc-popup__plans {
+    gap: 18px;
+    width: min(100%, 780px);
+    padding: 16px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0) 50%),
+      rgba(255, 255, 255, 0.018);
+  }
+
+  .gc-plan-card {
+    gap: 18px;
+    padding: 22px 20px 18px;
+    box-shadow: var(--shadow-panel);
+  }
+
+  .gc-plan-card::before {
+    inset: 0 auto auto 20px;
+    width: 68px;
+  }
+
+  .gc-plan-card::after {
+    display: none;
+  }
+
+  .gc-plan-card__head {
+    gap: 8px;
+  }
+
+  .gc-plan-card__title {
+    max-width: none;
+    font-size: clamp(1rem, 1.9vw, 1.22rem);
+    line-height: 1.12;
+  }
+
+  .gc-plan-card__term {
+    font-size: 0.74rem;
+  }
+
+  .gc-plan-card__price {
+    font-size: clamp(1.34rem, 2.7vw, 1.72rem);
+  }
+
+  .gc-plan-card__old-price {
+    font-size: 1rem;
+  }
+
+  .gc-plan-card__feature {
+    gap: 10px;
+  }
+
+  .gc-plan-card__feature p {
+    max-width: 22ch;
+    font-size: 0.94rem;
+    line-height: 1.45;
+  }
+
+  .gc-plan-card__button {
+    width: fit-content;
+    min-width: 200px;
+    justify-self: center;
+    margin-top: auto;
   }
 
   .end-prompt {
