@@ -2460,6 +2460,7 @@ body.body--modal-open {
 
   .gc-plan-card__hint {
     max-width: 23ch;
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.72rem;
     line-height: 1.22;
   }
@@ -2477,6 +2478,7 @@ body.body--modal-open {
 
   .gc-popup__plans-note {
     margin-top: 4px;
+    color: rgba(255, 255, 255, 0.42);
     font-size: 0.72rem;
     line-height: 1.22;
   }
