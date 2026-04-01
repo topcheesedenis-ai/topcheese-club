@@ -11,6 +11,8 @@
     <script>
       document.documentElement.classList.add("js");
     </script>
+    <link rel="dns-prefetch" href="//academy.topcheese.online" />
+    <link rel="preconnect" href="https://academy.topcheese.online" crossorigin />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -611,9 +613,9 @@
 
           <div class="gc-popup__header">
             <button class="gc-popup__back" type="button" data-gc-popup-back hidden>Назад</button>
-            <p class="gc-popup__eyebrow">Сырный комбайн</p>
-            <h2 class="gc-popup__title" id="gc-popup-title">Выберите формат участия</h2>
-            <p class="gc-popup__text" data-gc-popup-text>После выбора откроется форма оплаты.</p>
+            <p class="gc-popup__eyebrow">Последний шаг</p>
+            <h2 class="gc-popup__title" id="gc-popup-title">Выберите тариф</h2>
+            <p class="gc-popup__text" data-gc-popup-text>Нажмите на удобный вариант.</p>
           </div>
 
           <div class="gc-popup__body">
@@ -622,8 +624,9 @@
                 <article class="gc-plan-card">
                   <div class="gc-plan-card__head">
                     <h3 class="gc-plan-card__title">Сырный комбайн</h3>
-                    <p class="gc-plan-card__term">Доступ на 30 дней</p>
+                    <p class="gc-plan-card__term">На 30 дней</p>
                     <p class="gc-plan-card__price">1 490 рублей</p>
+                    <p class="gc-plan-card__hint">Зайти внутрь, посмотреть формат и задать первый вопрос.</p>
                   </div>
 
                   <button class="cta-button gc-plan-card__button" type="button" data-plan-button data-plan="month">
@@ -646,11 +649,12 @@
                 <article class="gc-plan-card gc-plan-card--accent">
                   <div class="gc-plan-card__head">
                     <h3 class="gc-plan-card__title">Сырный комбайн</h3>
-                    <p class="gc-plan-card__term">Доступ на 365 дней</p>
+                    <p class="gc-plan-card__term">На 365 дней</p>
                     <div class="gc-plan-card__price-row">
                       <p class="gc-plan-card__price">14 900 рублей</p>
                       <p class="gc-plan-card__old-price">17 880</p>
                     </div>
+                    <p class="gc-plan-card__hint">Если хотите работать вдолгую и спокойно возвращаться к базе.</p>
                   </div>
 
                   <button class="cta-button gc-plan-card__button" type="button" data-plan-button data-plan="year">
@@ -670,6 +674,7 @@
                   </div>
                 </article>
               </div>
+              <p class="gc-popup__plans-note">Дальше откроется форма доступа, и мы уже ждём вас внутри.</p>
             </div>
 
             <div class="gc-popup__view gc-popup__view--form" data-gc-view="form" hidden>

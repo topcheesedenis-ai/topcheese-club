@@ -237,8 +237,24 @@ if (landing) {
       month: false,
       year: false,
     };
+    const gcWidgetLoading = {
+      month: false,
+      year: false,
+    };
+    const gcWidgetShouldStart = {
+      month: false,
+      year: false,
+    };
+    let gcWidgetWarmupTimer = null;
     const gcPopupDefaultTitle = gcPopupTitle?.innerHTML || "";
     const gcPopupDefaultText = gcPopupText?.textContent || "";
+
+    const startGcWidget = (plan) => {
+      const widget = gcWidgets[plan];
+      if (!widget?.startEvent) return;
+      gcWidgetShouldStart[plan] = false;
+      document.dispatchEvent(new Event(widget.startEvent));
+    };
 
     const setGcPopupView = (view, plan = null) => {
       const isPlans = view === "plans";
@@ -277,23 +293,50 @@ if (landing) {
       gcPopupDialog.scrollTop = 0;
     };
 
-    const loadGcWidget = (plan) => {
+    const loadGcWidget = (plan, { autostart = true } = {}) => {
       const widget = gcWidgets[plan];
       if (!widget || !widget.mount) return;
 
+      if (autostart) {
+        gcWidgetShouldStart[plan] = true;
+      }
+
       if (gcWidgetLoaded[plan]) {
-        document.dispatchEvent(new Event(widget.startEvent));
+        if (autostart) {
+          startGcWidget(plan);
+        }
         return;
       }
+
+      if (gcWidgetLoading[plan]) return;
+
+      gcWidgetLoading[plan] = true;
 
       const script = document.createElement("script");
       script.id = widget.scriptId;
       script.src = widget.src;
       script.addEventListener("load", () => {
+        gcWidgetLoading[plan] = false;
         gcWidgetLoaded[plan] = true;
-        document.dispatchEvent(new Event(widget.startEvent));
+        if (gcWidgetShouldStart[plan]) {
+          startGcWidget(plan);
+        }
+      });
+      script.addEventListener("error", () => {
+        gcWidgetLoading[plan] = false;
       });
       widget.mount.appendChild(script);
+    };
+
+    const warmGcWidgets = () => {
+      if (gcWidgetWarmupTimer) {
+        window.clearTimeout(gcWidgetWarmupTimer);
+      }
+
+      loadGcWidget("month", { autostart: false });
+      gcWidgetWarmupTimer = window.setTimeout(() => {
+        loadGcWidget("year", { autostart: false });
+      }, 140);
     };
 
     const openGcPopup = () => {
@@ -303,10 +346,15 @@ if (landing) {
       gcPopup.classList.add("gc-popup--visible");
       gcPopup.setAttribute("aria-hidden", "false");
       syncBodyModalState();
+      warmGcWidgets();
       window.requestAnimationFrame(() => gcPopupDialog.focus());
     };
 
     const closeGcPopup = () => {
+      if (gcWidgetWarmupTimer) {
+        window.clearTimeout(gcWidgetWarmupTimer);
+        gcWidgetWarmupTimer = null;
+      }
       setGcPopupView("plans");
       gcPopup.classList.remove("gc-popup--visible");
       gcPopup.setAttribute("aria-hidden", "true");
@@ -318,6 +366,7 @@ if (landing) {
     };
 
     gcPopupOpeners.forEach((button) => {
+      button.addEventListener("pointerdown", warmGcWidgets, { passive: true });
       button.addEventListener("click", (event) => {
         event.preventDefault();
         openGcPopup();
