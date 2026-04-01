@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сырный комбайн</title>
+    <meta
+      name="description"
+      content="Сырный комбайн — рабочая среда для сыроделов, где ты не гадаешь и не ждёшь следующего разбора, а разбираешься сразу."
+    />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="landing" data-landing-root>
+      <section class="hero" id="top">
+        <div class="container">
+          <div class="hero__layout">
+            <div class="hero__copy">
+              <div class="hero__brand hero-intro hero-intro--badge">
+                <img
+                  class="hero__logo"
+                  src="./cheese-combine-tilda.png"
+                  alt=""
+                  aria-hidden="true"
+                  width="1280"
+                  height="582"
+                  decoding="async"
+                />
+                <p class="hero__badge">ЭКОСИСТЕМА СЫРОДЕЛИЯ</p>
+              </div>
+
+              <h1 class="hero__title hero-intro hero-intro--title"><span class="hero__title-accent">Сырный</span> комбайн</h1>
+
+              <img
+                class="hero__mark-bg"
+                src="./cheese-combine-tilda.png"
+                alt=""
+                aria-hidden="true"
+                width="1280"
+                height="582"
+                decoding="async"
+              />
+
+              <div class="text-flow hero__lead hero-intro hero-intro--lead">
+                <p>Ты вроде всё делаешь по техкарте.</p>
+                <p class="lead-strong">А результат всё равно разный.</p>
+                <p>Сыр то получается, то нет.<br />Вкус меняется.<br />Текстура не та, которую ты хотел.</p>
+                <p>И в какой-то момент упираешься в одно:</p>
+                <p class="focus-line">я не понимаю, где у меня ошибка</p>
+                <p>Именно для этого и нужен «Сырный комбайн».</p>
+              </div>
+
+              <a class="cta-button cta-button--hero hero-intro hero-intro--cta" href="#popup:club" data-gc-popup-open>
+                <span class="cta-button__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <path
+                      d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.314 0-6 1.79-6 4v1h12v-1c0-2.21-2.686-4-6-4Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span>Вступить в «Сырный комбайн»</span>
+              </a>
+            </div>
+
+            <div class="hero__summary hero-intro hero-intro--summary">
+              <article class="hero__summary-card">
+                <p class="hero__summary-kicker">Если коротко</p>
+                <p class="hero__summary-title">В бесплатном канале</p>
+                <p>Ты получаешь только часть картины.</p>
+              </article>
+
+              <article class="hero__summary-card">
+                <p class="hero__summary-kicker hero__summary-kicker--accent">Внутри комбайна</p>
+                <p class="hero__summary-title">Разбираешь уже свой случай.</p>
+                <p>Уточняешь детали. Доходишь до понятного решения.</p>
+              </article>
+            </div>
+
+            <div class="hero__scroll-cue hero-intro hero-intro--scroll" aria-hidden="true">
+              <span class="hero__scroll-cue-text">Листай вниз</span>
+              <span class="hero__scroll-cue-line" aria-hidden="true"></span>
+              <span class="hero__scroll-cue-arrow" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block block--panel" id="about">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title">Что это такое</h2>
+
+          <div class="about-grid">
+            <div class="about-grid__stack">
+              <article class="content-panel content-panel--about-intro">
+                <div class="content-panel__top">
+                  <p class="content-panel__kicker">Давай честно</p>
+                  <h3 class="subheading subheading--panel">Это рабочая среда для сыроделов.</h3>
+                </div>
+
+                <div class="text-flow text-flow--panel">
+                  <p>«Сырный комбайн» — не просто платный канал.<br />Не «ещё одно обучение».<br />И точно <strong>не курс, где тебе наваливают кучу рецептов</strong> и оставляют дальше разбираться самому.</p>
+                </div>
+              </article>
+
+              <article class="content-panel content-panel--about-pain">
+                <div class="content-panel__top">
+                  <p class="content-panel__kicker">Обычно в этот момент</p>
+                  <h3 class="subheading subheading--panel">Сюда заходят, когда уже надоело.</h3>
+                </div>
+
+                <ul class="line-list">
+                  <li>— делать по техкарте и всё равно не понимать, что происходит</li>
+                  <li>— получать разный результат на одном и том же рецепте</li>
+                  <li>— собирать знания по крупицам</li>
+                  <li>— и каждый раз надеяться, что «в этот раз получится»</li>
+                </ul>
+              </article>
+            </div>
+
+            <article class="content-panel content-panel--accent content-panel--about-accent">
+              <div class="content-panel__top">
+                <p class="content-panel__kicker content-panel__kicker--accent">Задача здесь другая</p>
+                <h3 class="subheading subheading--panel">Не дать тебе ещё 50 рецептов.</h3>
+              </div>
+
+              <ul class="line-list">
+                <li>— взять <strong>твой конкретный случай</strong></li>
+                <li>— показать, <strong>где именно сбой</strong></li>
+                <li>— объяснить, почему результат уехал</li>
+                <li>— разобрать, <strong>что здесь поправить</strong></li>
+                <li>— и довести до <strong>понятного решения</strong>, а не оставить с общим советом</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="pain">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title block__title--wide">С чем сюда обычно заходят</h2>
+
+          <div class="pain-flow">
+            <article class="pain-stage pain-stage--intro">
+              <p class="pain-stage__eyebrow">Обычно сюда приходят уже с опытом</p>
+
+              <div class="text-flow text-flow--compact">
+                <p>Сюда редко приходят с нуля.</p>
+                <p>Обычно человек уже <strong>варит</strong>.<br />Уже пробовал.<br />Уже что-то <strong>получается</strong>.</p>
+              </div>
+            </article>
+
+            <article class="pain-stage pain-stage--quotes">
+              <p class="pain__prompt">А В ГОЛОВЕ ОБЫЧНО ТАК:</p>
+
+              <ul class="line-list line-list--quotes pain__quotes">
+                <li class="quote-chip">я вроде уже не новичок, <strong>но</strong> <strong>ясности всё равно не хватает</strong></li>
+                <li class="quote-chip">в голове <strong>каша</strong></li>
+                <li class="quote-chip">один мастер говорит так, другой — наоборот</li>
+                <li class="quote-chip">всё вроде по техкарте, а результат всё равно <strong>другой</strong></li>
+                <li class="quote-chip">если что-то пошло не так — <strong>не понимаю, куда смотреть</strong></li>
+                <li class="quote-chip">новое пробовать страшно, потому что <strong>нет уверенности</strong></li>
+              </ul>
+            </article>
+
+            <article class="pain-stage pain-stage--focus">
+              <p class="pain-stage__eyebrow pain-stage__eyebrow--accent">И по сути всё сводится к одному</p>
+              <p class="focus-line focus-line--soft">я уже варю, но до конца <span class="focus-line__emphasis">не понимаю</span>, что происходит</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="channel">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title block__title--wide">Почему одного канала уже мало</h2>
+
+          <div class="content-stack">
+            <div class="content-panels content-panels--2 content-panels--channel">
+              <article class="content-panel content-panel--channel-main">
+                <div class="content-panel__top">
+                  <p class="content-panel__kicker">Бесплатный канал</p>
+                  <h3 class="subheading subheading--panel">Там ты получаешь только часть пользы.</h3>
+                </div>
+
+                <div class="text-flow text-flow--panel">
+                  <p>Я там:</p>
+                </div>
+
+                <ul class="line-list">
+                  <li>— разбираю вопросы</li>
+                  <li>— объясняю процессы</li>
+                  <li>— показываю логику</li>
+                  <li>— отвечаю</li>
+                </ul>
+              </article>
+
+              <article class="content-panel content-panel--channel-club">
+                <div class="content-panel__top">
+                  <p class="content-panel__kicker content-panel__kicker--accent">Внутри «Сырного комбайна»</p>
+                  <h3 class="subheading subheading--panel">Здесь уже разбираем твой конкретный случай.</h3>
+                </div>
+
+                <div class="text-flow text-flow--panel">
+                  <p>Здесь можно:</p>
+                </div>
+
+                <ul class="line-list">
+                  <li>— принести свой конкретный вопрос</li>
+                  <li>— докрутить важные детали</li>
+                  <li>— увидеть, где именно сбой</li>
+                  <li>— понять следующий шаг без догадок</li>
+                </ul>
+              </article>
+            </div>
+
+            <p class="signal-line">👉 А у тебя почти всегда вопрос не общий, а свой.</p>
+
+            <div class="text-flow">
+              <p>В бесплатном канале ты получаешь логику и направление.</p>
+              <p>Но когда ситуация уже твоя, дальше всё упирается в детали.</p>
+              <p>И тут одного общего ответа почти всегда мало.</p>
+            </div>
+
+            <div class="section-accent section-accent--channel">
+              <h3 class="subheading">В «Сырном комбайне» по-другому</h3>
+
+              <div class="text-flow">
+                <p>Я не просто <strong>отвечаю</strong>.</p>
+                <p>Я показываю, <strong>на чём этот ответ держится</strong>, чтобы ты начал понимать <strong>процессы и взаимосвязи</strong>.</p>
+                <p><strong>То есть не просто что делать, а почему именно так.</strong></p>
+                <p>Без пауз.<br />Без «потом».<br />Без догадок.</p>
+              </div>
+            </div>
+
+            <a class="cta-button cta-button--inline" href="#popup:club" data-gc-popup-open>
+              <span class="cta-button__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path
+                    d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.314 0-6 1.79-6 4v1h12v-1c0-2.21-2.686-4-6-4Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <span>Вступить в «Сырный комбайн»</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="questions">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title block__title--wide">С какими вопросами сюда заходят</h2>
+
+          <div class="content-panels content-panels--questions">
+            <article class="content-panel">
+              <div class="content-panel__top">
+                <p class="content-panel__kicker">Чаще всего</p>
+                <h3 class="subheading subheading--panel">Вопросы начинаются вот с этого.</h3>
+              </div>
+
+              <ul class="question-list-grid">
+                <li class="question-list-grid__item">Почему результат нестабильный</li>
+                <li class="question-list-grid__item">Что делать, если делаю по техкарте, а всё равно что-то пошло не так</li>
+                <li class="question-list-grid__item">Почему вкус меняется от варки к варке</li>
+                <li class="question-list-grid__item">Почему текстура не та, которую хотел получить</li>
+                <li class="question-list-grid__item">Почему в Маасдаме нет глазков</li>
+                <li class="question-list-grid__item">Почему Камамбер получается не той текстуры</li>
+                <li class="question-list-grid__item">Что не так с зерном, посолом, прессованием</li>
+                <li class="question-list-grid__item">Откуда берётся горечь</li>
+                <li class="question-list-grid__item">Где я усложняю, а можно сделать проще</li>
+              </ul>
+            </article>
+
+            <article class="content-panel content-panel--accent">
+              <div class="content-panel__top">
+                <p class="content-panel__kicker content-panel__kicker--accent">Внутри</p>
+                <h3 class="subheading subheading--panel">Разбираем твой конкретный случай.</h3>
+              </div>
+
+              <ul class="question-focus-grid">
+                <li class="question-focus-grid__item">Что у тебя реально происходит</li>
+                <li class="question-focus-grid__item">Где именно проблема</li>
+                <li class="question-focus-grid__item">Почему результат получается другим</li>
+                <li class="question-focus-grid__item">Что менять в первую очередь</li>
+              </ul>
+
+              <p class="content-panel__closing-line">Из практики. На реальном опыте.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="inside">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title block__title--wide">Что ты получаешь внутри</h2>
+
+          <div class="content-panels content-panels--2">
+            <article class="content-panel">
+              <div class="content-panel__top">
+                <p class="content-panel__kicker">Что ты получаешь</p>
+                <h3 class="subheading subheading--panel">Не доступ ради доступа, а рабочую систему:</h3>
+              </div>
+
+              <ul class="line-list">
+                <li>— разборы вопросов и реальных ситуаций</li>
+                <li>— прикладная теория простыми словами и на практических примерах</li>
+                <li>— база знаний с навигацией</li>
+                <li>— закрытый чат</li>
+                <li>— технологические рекомендации и иногда техкарты</li>
+                <li>— среду, где люди реально варят</li>
+              </ul>
+            </article>
+
+            <article class="content-panel content-panel--accent">
+              <div class="content-panel__top">
+                <p class="content-panel__kicker content-panel__kicker--accent">И самое важное</p>
+                <h3 class="subheading subheading--panel">Разборы чужих вопросов</h3>
+              </div>
+
+              <div class="text-flow text-flow--panel">
+                <p>Очень часто именно в <strong>ответе на чужой вопрос</strong> у тебя щёлкает, и ты вспоминаешь <strong>свою ситуацию</strong>.</p>
+                <p>А ещё всё это потом собирается в <strong>базу с навигацией</strong>, куда ты можешь вернуться в нужный момент.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="difference">
+        <div class="container block__inner" data-reveal>
+          <h2 class="block__title block__title--wide">Чем отличается от основного канала</h2>
+
+          <div class="comparison">
+            <div class="comparison__column comparison__column--entry">
+              <div class="text-flow">
+                <h3 class="subheading">Основной канал — это вход.</h3>
+                <p>В основном канале ты получаешь посты, короткие ответы и общую логику.</p>
+              </div>
+
+              <ul class="line-list">
+                <li>— я выкладываю посты и разборы</li>
+                <li>— часть из этого уже широко разбиралась внутри</li>
+                <li>— наружу ты получаешь только часть</li>
+                <li>— этого хватает, чтобы понять направление и общую логику</li>
+              </ul>
+
+            </div>
+
+            <div class="comparison__column comparison__column--club">
+              <div class="text-flow">
+                <p class="eyebrow">Внутри «Сырного комбайна»</p>
+                <h3 class="subheading">Здесь уже глубже.</h3>
+                <p>Не просто ответ, а понимание, на чём он держится.</p>
+              </div>
+
+              <ul class="line-list">
+                <li>— даю прикладную теорию простыми словами</li>
+                <li>— показываю это на своих практических примерах</li>
+                <li>— объясняю, почему вывод именно такой</li>
+                <li>— углубляемся уже под твою ситуацию</li>
+                <li>— и иногда делюсь техкартами и технологическими рекомендациями</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section-accent section-accent--compact">
+            <div class="text-flow text-flow--compact">
+              <p class="eyebrow">Если максимально просто</p>
+              <p><strong>Бесплатно</strong> — это только малая часть.<br /><strong>Внутри</strong> — не просто ответ, а понимание, на чём он держится и как это применить к твоей ситуации.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="process">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title">Как это работает</h2>
+
+          <ol class="steps">
+            <li>У тебя есть вопрос или проблема</li>
+            <li>Ты задаёшь его в группе</li>
+            <li>Получаешь ответ по делу</li>
+            <li>Уточняешь детали</li>
+            <li>Применяешь уже с пониманием</li>
+          </ol>
+
+          <div class="text-flow">
+            <p>Параллельно изучаешь теорию, чужие разборы и полезные материалы. Со временем у тебя появляется насмотренность и понимание.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="result">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title">Что в итоге меняется</h2>
+
+          <div class="text-flow">
+            <p>Самое главное:</p>
+            <p class="focus-line focus-line--soft">Ты перестаёшь действовать вслепую.</p>
+          </div>
+
+          <ul class="line-list">
+            <li>— понимаешь, от чего зависят вкус и текстура</li>
+            <li>— результат становится стабильнее</li>
+            <li>— меньше ошибок на ровном месте</li>
+            <li>— меньше лишних потерь</li>
+            <li>— меньше суеты и нервов</li>
+            <li>— меньше действий наудачу</li>
+          </ul>
+
+          <a class="cta-button cta-button--inline" href="#popup:club" data-gc-popup-open>
+            <span class="cta-button__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                <path
+                  d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.314 0-6 1.79-6 4v1h12v-1c0-2.21-2.686-4-6-4Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span>Вступить в «Сырный комбайн»</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="block block--compact" id="fit">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title">Кому это подойдёт</h2>
+
+          <div class="text-flow">
+            <p class="cluster-lead fit__lead">Если ты уже варишь сыр — тебе сюда.</p>
+            <p class="fit__intro">Особенно если <strong>результат нестабильный</strong> и хочется не просто повторять действия, а <strong>управлять процессом</strong>.</p>
+            <p>Если:</p>
+          </div>
+
+          <ul class="line-list line-list--fit">
+            <li class="fit__item fit__item--accent">— результат нестабильный</li>
+            <li>— есть молоко или объём, который нужно перерабатывать</li>
+            <li>— упёрся в потолок и хочешь двигаться дальше</li>
+            <li>— не хочешь просто повторять действия</li>
+            <li>— хочешь управлять процессом, а не гадать</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="block" id="author">
+        <div class="container author" data-reveal>
+          <div class="author__media">
+            <div class="author__image-wrap">
+              <img
+                class="author__image"
+                src="./expert-cheese-1000.png"
+                alt="Денис Ильченко с сыром"
+                width="1000"
+                height="1333"
+                decoding="async"
+                loading="lazy"
+              />
+            </div>
+            <div class="author__media-note">
+              <span class="author__media-rule" aria-hidden="true"></span>
+              <p class="author__media-text">От 100 литров до 12 тонн переработки в сутки</p>
+            </div>
+          </div>
+
+          <div class="author__content">
+            <h2 class="block__title">Опыт, на который можно опереться</h2>
+            <p class="author__name">Денис Ильченко</p>
+
+            <div class="content-stack">
+              <div class="text-flow text-flow--author">
+                <p>Я в сыроделии с 2013 года и прошёл путь на базе фермерского хозяйства от 100 литров до 12 тонн переработки в сутки. Работал руками, выстраивал процессы и руководил производством как начальник цеха, закрывая все ключевые вопросы.</p>
+                <p>Параллельно уже много лет являюсь главным технологом CASARO, где участвую в разработке оборудования и формировании рабочих решений для сыроделов.</p>
+              </div>
+
+              <div class="section-accent section-accent--compact">
+                <div class="text-flow text-flow--compact">
+                  <p>Мне важно, чтобы внутри ты начал понимать:</p>
+                </div>
+                <ul class="line-list line-list--tight">
+                  <li>— что у тебя на самом деле происходит</li>
+                  <li>— как между собой связаны процессы</li>
+                  <li>— почему результат получается именно таким</li>
+                  <li>— и как им дальше управлять, а не гадать</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="block block--compact" id="not-course">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title">Чем это не является</h2>
+
+          <div class="text-flow">
+            <p>Это не:</p>
+          </div>
+
+          <ul class="line-list">
+            <li>— онлайн-курс «как у всех»</li>
+            <li>— куча видеорецептов</li>
+            <li>— теория ради теории</li>
+            <li>— рассказы в духе «тут всё легко и просто»</li>
+          </ul>
+
+          <div class="text-flow">
+            <p>Здесь не копят контент ради контента. Здесь начинают понимать процессы, взаимосвязи и то, как управлять результатом.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block block--surface" id="tariffs">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title">Формат участия</h2>
+
+          <div class="pricing">
+            <article class="price-card">
+              <p class="price-card__title">1490 ₽ / месяц</p>
+              <p class="price-card__text">Можно зайти на месяц, посмотреть формат и задать свой первый вопрос.</p>
+            </article>
+
+            <article class="price-card price-card--accent">
+              <p class="price-card__title">14 900 ₽ / год</p>
+              <p class="price-card__text">Если хочешь работать вдолгую, спокойно возвращаться к базе и разбирать свои вопросы по ходу.</p>
+            </article>
+          </div>
+
+          <div class="pricing-proof">
+            <p class="pricing-proof__title">Что откроется сразу после входа</p>
+            <div class="pricing-proof__grid">
+              <p class="pricing-proof__item">Платформа с обучающими материалами, которая постепенно пополняется</p>
+              <p class="pricing-proof__item">Закрытый чат и среда участников</p>
+              <p class="pricing-proof__item">Возможность задать вопрос и разобрать свою ситуацию</p>
+            </div>
+          </div>
+
+          <div class="pricing__action">
+            <a class="cta-button" href="#popup:club" data-gc-popup-open>
+              <span class="cta-button__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path
+                    d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.314 0-6 1.79-6 4v1h12v-1c0-2.21-2.686-4-6-4Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <span>Вступить в «Сырный комбайн»</span>
+            </a>
+            <p class="pricing__meta">Финальный шаг</p>
+            <p class="pricing__note">Если формат тебе подходит, заходи в «Сырный комбайн». Внутри уже есть с чего начать.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block block--cta" id="cta">
+        <div class="container block__inner block__inner--narrow block__inner--center" data-reveal>
+          <div class="cta-divider" aria-hidden="true"></div>
+          <h2 class="block__title">Если хочешь разбираться, а не гадать, присоединяйся</h2>
+
+          <div class="text-flow text-flow--center">
+            <p>* Если пока достаточно просто смотреть, оставайся в основном канале.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div class="site-footer__column site-footer__column--meta">
+            <p class="site-footer__copy">© 2026. Все права защищены</p>
+            <p class="site-footer__company">ИП Ильченко Денис Юрьевич<br />ИНН: 237300809600</p>
+          </div>
+
+          <nav class="site-footer__column site-footer__column--links" aria-label="Юридические документы">
+            <a class="site-footer__link" href="https://topcheese.online/politconf">Политика конфиденциальности</a>
+            <a class="site-footer__link" href="https://topcheese.online/oferta">Публичная оферта</a>
+          </nav>
+        </div>
+      </footer>
+
+      <div class="sticky-cta" data-sticky-cta>
+        <a class="cta-button sticky-cta__button" href="#popup:club" data-gc-popup-open aria-label="Вступить в «Сырный комбайн»">
+          <span class="cta-button__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path
+                d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.314 0-6 1.79-6 4v1h12v-1c0-2.21-2.686-4-6-4Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span class="sticky-cta__label">Вступить</span>
+        </a>
+      </div>
+
+      <div class="gc-popup" data-gc-popup aria-hidden="true">
+        <div class="gc-popup__backdrop" data-gc-popup-close></div>
+        <div
+          class="gc-popup__dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="gc-popup-title"
+          tabindex="-1"
+        >
+          <button class="gc-popup__close" type="button" aria-label="Закрыть окно" data-gc-popup-close>
+            <span aria-hidden="true">×</span>
+          </button>
+
+          <div class="gc-popup__header">
+            <button class="gc-popup__back" type="button" data-gc-popup-back hidden>Назад</button>
+            <p class="gc-popup__eyebrow">Последний шаг</p>
+            <h2 class="gc-popup__title" id="gc-popup-title"><span>Получите доступ</span><br />в «Сырный комбайн»</h2>
+            <p class="gc-popup__text" data-gc-popup-text>Выбери формат и заходи внутрь.</p>
+          </div>
+
+          <div class="gc-popup__body">
+            <div class="gc-popup__view gc-popup__view--plans" data-gc-view="plans">
+              <div class="gc-popup__plans">
+                <article class="gc-plan-card">
+                  <div class="gc-plan-card__head">
+                    <h3 class="gc-plan-card__title">Сырный комбайн —<br />доступ на 30 дней</h3>
+                    <p class="gc-plan-card__price">1 490 рублей</p>
+                  </div>
+
+                  <button class="cta-button gc-plan-card__button" type="button" data-plan-button data-plan="month">
+                    <span>Получить доступ</span>
+                  </button>
+
+                  <div class="gc-plan-card__feature">
+                    <div class="gc-plan-card__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <path
+                          d="M4 6.5C4 5.12 5.12 4 6.5 4H11v15H6.5A2.5 2.5 0 0 0 4 21.5V6.5Zm9 12.5V4h4.5A2.5 2.5 0 0 1 20 6.5v15a2.5 2.5 0 0 0-2.5-2.5H13Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                    <p>Доступ ко всем материалам клуба — 24/7</p>
+                  </div>
+                </article>
+
+                <article class="gc-plan-card gc-plan-card--accent">
+                  <div class="gc-plan-card__head">
+                    <h3 class="gc-plan-card__title">Сырный комбайн —<br />доступ на 365 дней</h3>
+                    <div class="gc-plan-card__price-row">
+                      <p class="gc-plan-card__price">14 900 рублей</p>
+                      <p class="gc-plan-card__old-price">17 880</p>
+                    </div>
+                  </div>
+
+                  <button class="cta-button gc-plan-card__button" type="button" data-plan-button data-plan="year">
+                    <span>Получить доступ</span>
+                  </button>
+
+                  <div class="gc-plan-card__feature">
+                    <div class="gc-plan-card__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <path
+                          d="M20 9h-3.17l1.24-1.24a1.5 1.5 0 0 0-2.12-2.12L12 9.59 8.05 5.64a1.5 1.5 0 1 0-2.12 2.12L7.17 9H4a1 1 0 0 0-1 1v2h18v-2a1 1 0 0 0-1-1Zm-8 3H4v6a2 2 0 0 0 2 2h6v-8Zm2 0v8h4a2 2 0 0 0 2-2v-6h-6Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                    <p>При оплате сразу за год — 2 месяца в подарок</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="gc-popup__view gc-popup__view--form" data-gc-view="form" hidden>
+              <div class="gc-popup__widget" data-gc-widget="month" hidden></div>
+              <div class="gc-popup__widget" data-gc-widget="year" hidden></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="end-prompt" data-end-prompt aria-hidden="true">
+        <div class="end-prompt__backdrop" data-end-prompt-close></div>
+        <div
+          class="end-prompt__dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="end-prompt-title"
+          tabindex="-1"
+        >
+          <button class="end-prompt__close" type="button" aria-label="Закрыть окно" data-end-prompt-close>
+            <span aria-hidden="true">×</span>
+          </button>
+
+          <div class="end-prompt__accent" aria-hidden="true"></div>
+          <p class="end-prompt__eyebrow">Ты почти долистал до конца</p>
+          <h2 class="end-prompt__title" id="end-prompt-title">Значит, тебе реально важно разобраться</h2>
+
+          <div class="end-prompt__copy">
+            <p class="end-prompt__text">Если в голове до сих пор каша и хочется не гадать, а понимать, что происходит, тебе в «Сырный комбайн».</p>
+            <p class="end-prompt__text end-prompt__text--muted">Внутри уже есть база знаний, разборы ситуаций и место, куда можно принести свой вопрос.</p>
+            <p class="end-prompt__note">Пока доступ открыт, заходи.</p>
+          </div>
+
+          <div class="end-prompt__actions">
+            <button class="cta-button end-prompt__button" type="button" data-end-prompt-go>
+              <span>Выбрать формат участия</span>
+            </button>
+            <button class="end-prompt__dismiss" type="button" data-end-prompt-close>Пока не сейчас</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./script.js" defer></script>
+  </body>
+</html>
