@@ -6,7 +6,7 @@
     <title>Сырный комбайн</title>
     <meta
       name="description"
-      content="Сырный комбайн — рабочая среда для сыроделов, где ты не гадаешь и не ждёшь следующего разбора, а разбираешься сразу."
+      content="Сырный комбайн — рабочая среда для сыроделов: вопросы, разборы, база и чат по технологии, оборудованию, документам и продажам."
     />
     <script>
       document.documentElement.classList.add("js");
@@ -14,6 +14,7 @@
     <link rel="dns-prefetch" href="//academy.topcheese.online" />
     <link rel="preconnect" href="https://academy.topcheese.online" crossorigin />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./editor.css" />
   </head>
   <body>
     <main class="landing" data-landing-root>
@@ -24,7 +25,7 @@
               <div class="hero__brand hero-intro hero-intro--badge">
                 <img
                   class="hero__logo"
-                  src="./cheese-combine-tilda.png"
+                  src="./assets/cheese-combine-tilda.png"
                   alt=""
                   aria-hidden="true"
                   width="1280"
@@ -34,11 +35,11 @@
                 <p class="hero__badge">ЭКОСИСТЕМА СЫРОДЕЛИЯ</p>
               </div>
 
-              <h1 class="hero__title hero-intro hero-intro--title"><span class="hero__title-accent">Сырный</span> комбайн</h1>
+              <p class="hero__product hero-intro hero-intro--title">Сырный комбайн</p>
 
               <img
                 class="hero__mark-bg"
-                src="./cheese-combine-tilda.png"
+                src="./assets/cheese-combine-tilda.png"
                 alt=""
                 aria-hidden="true"
                 width="1280"
@@ -47,12 +48,12 @@
               />
 
               <div class="text-flow hero__lead hero-intro hero-intro--lead">
-                <p>Ты вроде всё делаешь по техкарте.</p>
-                <p class="lead-strong">А результат всё равно разный.</p>
-                <p>Сыр то получается, то нет.<br />Вкус меняется.<br />Текстура не та, которую ты хотел.</p>
-                <p>И в какой-то момент упираешься в одно:</p>
-                <p class="focus-line">я не понимаю, где у меня ошибка</p>
-                <p>Именно для этого и нужен «Сырный комбайн».</p>
+                <h1 class="hero__title"><span class="hero__title-line">Когда ты уже не новичок,</span><span class="hero__title-line">а понимания всё равно нет.</span></h1>
+                <p>Ты можешь делать сыр уже не первый год.<br />Что-то получается. Что-то даже стабильно.</p>
+                <p>Но потом всё равно начинается вот это:<br />вкус поменялся, текстура не та, что хотел, результат опять плавает.</p>
+                <p>И в какой-то момент ты понимаешь:</p>
+                <p class="focus-line">ты просто до конца не понимаешь, что у тебя происходит</p>
+                <p>Вот именно для этого я и сделал<br />«Сырный комбайн»<br />Закрытую рабочую среду для сыроделов, где у тебя постепенно начинает собираться нормальное понимание процесса.</p>
               </div>
 
               <a class="cta-button cta-button--hero hero-intro hero-intro--cta" href="#popup:club" data-gc-popup-open>
@@ -64,22 +65,8 @@
                     />
                   </svg>
                 </span>
-                <span>Вступить в «Сырный комбайн»</span>
+                <span>Зайти внутрь</span>
               </a>
-            </div>
-
-            <div class="hero__summary hero-intro hero-intro--summary">
-              <article class="hero__summary-card">
-                <p class="hero__summary-kicker">Если коротко</p>
-                <p class="hero__summary-title">В бесплатном канале</p>
-                <p>Ты получаешь только часть картины.</p>
-              </article>
-
-              <article class="hero__summary-card">
-                <p class="hero__summary-kicker hero__summary-kicker--accent">Внутри комбайна</p>
-                <p class="hero__summary-title">Разбираешь уже свой случай.</p>
-                <p>Уточняешь детали. Доходишь до понятного решения.</p>
-              </article>
             </div>
 
             <div class="hero__scroll-cue hero-intro hero-intro--scroll" aria-hidden="true">
@@ -91,453 +78,392 @@
         </div>
       </section>
 
-      <section class="block block--panel" id="about">
+      <section class="block block--panel" id="problem">
         <div class="container block__inner block__inner--narrow" data-reveal>
-          <h2 class="block__title">Что это такое</h2>
+          <h2 class="block__title">Проблема большинства</h2>
+          <p class="block__lede">Чаще всего не хватает не усилий,<br />а собранной системы в голове.</p>
 
-          <div class="about-grid">
-            <div class="about-grid__stack">
-              <article class="content-panel content-panel--about-intro">
-                <div class="content-panel__top">
-                  <p class="content-panel__kicker">Давай честно</p>
-                  <h3 class="subheading subheading--panel">Это рабочая среда для сыроделов.</h3>
-                </div>
-
-                <div class="text-flow text-flow--panel">
-                  <p>«Сырный комбайн» — не просто платный канал.<br />Не «ещё одно обучение».<br />И точно <strong>не курс, где тебе наваливают кучу рецептов</strong> и оставляют дальше разбираться самому.</p>
-                </div>
-              </article>
-
-              <article class="content-panel content-panel--about-pain">
-                <div class="content-panel__top">
-                  <p class="content-panel__kicker">Обычно в этот момент</p>
-                  <h3 class="subheading subheading--panel">Сюда заходят, когда уже надоело.</h3>
-                </div>
-
-                <ul class="line-list">
-                  <li>— делать по техкарте и всё равно не понимать, что происходит</li>
-                  <li>— получать разный результат на одном и том же рецепте</li>
-                  <li>— собирать знания по крупицам</li>
-                  <li>— и каждый раз надеяться, что «в этот раз получится»</li>
-                </ul>
-              </article>
-            </div>
-
-            <article class="content-panel content-panel--accent content-panel--about-accent">
+          <div class="content-panels content-panels--2">
+            <article class="content-panel">
               <div class="content-panel__top">
-                <p class="content-panel__kicker content-panel__kicker--accent">Задача здесь другая</p>
-                <h3 class="subheading subheading--panel">Не дать тебе ещё 50 рецептов.</h3>
+                <p class="content-panel__kicker">Чаще всего проблема в другом</p>
+                <p class="content-panel__lead">Человек делает действия, но не видит причинно-следственные связи целиком.</p>
+              </div>
+
+              <div class="text-flow text-flow--panel">
+                <p>Пока всё идёт ровно, это не так заметно.</p>
+                <p>Но как только вкус меняется, текстура не та, что хотел, или результат начинает плавать, включается недоумение.</p>
+              </div>
+            </article>
+
+            <article class="content-panel content-panel--accent">
+              <div class="content-panel__top">
+                <p class="content-panel__kicker content-panel__kicker--accent">Как это обычно выглядит</p>
+                <p class="content-panel__lead">И начинается знакомый круг.</p>
               </div>
 
               <ul class="line-list">
-                <li>— взять <strong>твой конкретный случай</strong></li>
-                <li>— показать, <strong>где именно сбой</strong></li>
-                <li>— объяснить, почему результат уехал</li>
-                <li>— разобрать, <strong>что здесь поправить</strong></li>
-                <li>— и довести до <strong>понятного решения</strong>, а не оставить с общим советом</li>
+                <li>— вроде стараешься</li>
+                <li>— вроде уже что-то умеешь</li>
+                <li>— вроде даже что-то понимаешь</li>
+                <li>— а если что-то пошло не так, не понимаешь, что с этим делать</li>
+                <li>— здесь попробовал</li>
+                <li>— там поменял</li>
+                <li>— тут у кого-то спросил</li>
+                <li>— где-то что-то почитал</li>
               </ul>
+
+              <p class="content-panel__closing-line">Без системы любое отклонение быстро превращается в догадки.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="block" id="pain">
+      <section class="block" id="about">
         <div class="container block__inner block__inner--narrow" data-reveal>
-          <h2 class="block__title block__title--wide">С чем сюда обычно заходят</h2>
+          <h2 class="block__title">Что такое «Сырный комбайн»</h2>
+          <p class="block__lede">Это не курс с кучей рецептов и не просто чат с сообщениями.</p>
 
-          <div class="pain-flow">
-            <article class="pain-stage pain-stage--intro">
-              <p class="pain-stage__eyebrow">Обычно сюда приходят уже с опытом</p>
-
-              <div class="text-flow text-flow--compact">
-                <p>Сюда редко приходят с нуля.</p>
-                <p>Обычно человек уже <strong>варит</strong>.<br />Уже пробовал.<br />Уже что-то <strong>получается</strong>.</p>
-              </div>
-            </article>
-
-            <article class="pain-stage pain-stage--quotes">
-              <p class="pain__prompt">А В ГОЛОВЕ ОБЫЧНО ТАК:</p>
-
-              <ul class="line-list line-list--quotes pain__quotes">
-                <li class="quote-chip">я вроде уже не новичок, <strong>но</strong> <strong>ясности всё равно не хватает</strong></li>
-                <li class="quote-chip">в голове <strong>каша</strong></li>
-                <li class="quote-chip">один мастер говорит так, другой — наоборот</li>
-                <li class="quote-chip">всё вроде по техкарте, а результат всё равно <strong>другой</strong></li>
-                <li class="quote-chip">если что-то пошло не так — <strong>не понимаю, куда смотреть</strong></li>
-                <li class="quote-chip">новое пробовать страшно, потому что <strong>нет уверенности</strong></li>
-              </ul>
-            </article>
-
-            <article class="pain-stage pain-stage--focus">
-              <p class="pain-stage__eyebrow pain-stage__eyebrow--accent">И по сути всё сводится к одному</p>
-              <p class="focus-line focus-line--soft">я уже варю, но до конца <span class="focus-line__emphasis">не понимаю</span>, что происходит</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="block" id="channel">
-        <div class="container block__inner block__inner--narrow" data-reveal>
-          <h2 class="block__title block__title--wide">Почему одного канала уже мало</h2>
-
-          <div class="content-stack">
-            <div class="content-panels content-panels--2 content-panels--channel">
-              <article class="content-panel content-panel--channel-main">
-                <div class="content-panel__top">
-                  <p class="content-panel__kicker">Бесплатный канал</p>
-                  <h3 class="subheading subheading--panel">Там ты получаешь только часть пользы.</h3>
-                </div>
-
-                <div class="text-flow text-flow--panel">
-                  <p>Я там:</p>
-                </div>
-
-                <ul class="line-list">
-                  <li>— разбираю вопросы</li>
-                  <li>— объясняю процессы</li>
-                  <li>— показываю логику</li>
-                  <li>— отвечаю</li>
-                </ul>
-              </article>
-
-              <article class="content-panel content-panel--channel-club">
-                <div class="content-panel__top">
-                  <p class="content-panel__kicker content-panel__kicker--accent">Внутри «Сырного комбайна»</p>
-                  <h3 class="subheading subheading--panel">Здесь уже разбираем твой конкретный случай.</h3>
-                </div>
-
-                <div class="text-flow text-flow--panel">
-                  <p>Здесь можно:</p>
-                </div>
-
-                <ul class="line-list">
-                  <li>— принести свой конкретный вопрос</li>
-                  <li>— докрутить важные детали</li>
-                  <li>— увидеть, где именно сбой</li>
-                  <li>— понять следующий шаг без догадок</li>
-                </ul>
-              </article>
-            </div>
-
-            <p class="signal-line">👉 А у тебя почти всегда вопрос не общий, а свой.</p>
-
-            <div class="text-flow">
-              <p>В бесплатном канале ты получаешь логику и направление.</p>
-              <p>Но когда ситуация уже твоя, дальше всё упирается в детали.</p>
-              <p>И тут одного общего ответа почти всегда мало.</p>
-            </div>
-
-            <div class="section-accent section-accent--channel">
-              <h3 class="subheading">В «Сырном комбайне» по-другому</h3>
-
-              <div class="text-flow">
-                <p>Я не просто <strong>отвечаю</strong>.</p>
-                <p>Я показываю, <strong>на чём этот ответ держится</strong>, чтобы ты начал понимать <strong>процессы и взаимосвязи</strong>.</p>
-                <p><strong>То есть не просто что делать, а почему именно так.</strong></p>
-                <p>Без пауз.<br />Без «потом».<br />Без догадок.</p>
-              </div>
-            </div>
-
-            <a class="cta-button cta-button--inline" href="#popup:club" data-gc-popup-open>
-              <span class="cta-button__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                  <path
-                    d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.314 0-6 1.79-6 4v1h12v-1c0-2.21-2.686-4-6-4Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span>Вступить в «Сырный комбайн»</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="block" id="questions">
-        <div class="container block__inner block__inner--narrow" data-reveal>
-          <h2 class="block__title block__title--wide">С какими вопросами сюда заходят</h2>
-
-          <div class="content-panels content-panels--questions">
+          <div class="content-panels content-panels--2">
             <article class="content-panel">
               <div class="content-panel__top">
-                <p class="content-panel__kicker">Чаще всего</p>
-                <h3 class="subheading subheading--panel">Вопросы начинаются вот с этого.</h3>
+                <p class="content-panel__kicker">Если совсем по-простому</p>
+                <p class="content-panel__lead">Это закрытая рабочая среда для сыроделов.</p>
               </div>
 
-              <ul class="question-list-grid">
-                <li class="question-list-grid__item">Почему результат нестабильный</li>
-                <li class="question-list-grid__item">Что делать, если делаю по техкарте, а всё равно что-то пошло не так</li>
-                <li class="question-list-grid__item">Почему вкус меняется от варки к варке</li>
-                <li class="question-list-grid__item">Почему текстура не та, которую хотел получить</li>
-                <li class="question-list-grid__item">Почему в Маасдаме нет глазков</li>
-                <li class="question-list-grid__item">Почему Камамбер получается не той текстуры</li>
-                <li class="question-list-grid__item">Что не так с зерном, посолом, прессованием</li>
-                <li class="question-list-grid__item">Откуда берётся горечь</li>
-                <li class="question-list-grid__item">Где я усложняю, а можно сделать проще</li>
+              <div class="text-flow text-flow--panel">
+                <p>Внутри у тебя постепенно начинает складываться понимание того, что происходит в технологии и почему результат получается именно таким.</p>
+                <p>Здесь собирается не просто контент, а логика процесса.</p>
+              </div>
+            </article>
+
+            <article class="content-panel content-panel--accent">
+              <div class="content-panel__top">
+                <p class="content-panel__kicker content-panel__kicker--accent">Что именно начинает складываться</p>
+                <p class="content-panel__lead">Не просто ответы, а понимание того, что у тебя происходит:</p>
+              </div>
+
+              <ul class="line-list">
+                <li>— что влияет на результат</li>
+                <li>— где у тебя проблемы</li>
+                <li>— что стоит поправить прямо сейчас</li>
+                <li>— понимать куда двигаться дальше</li>
+              </ul>
+
+              <p class="content-panel__closing-line">И это не только про технологию.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="scope">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title">Не только про сыр</h2>
+          <p class="block__lede">В какой-то момент уже недостаточно просто понимать технологию — важно видеть всю рабочую картину вокруг.</p>
+
+          <div class="content-panels content-panels--2">
+            <article class="content-panel">
+              <div class="content-panel__top">
+                <p class="content-panel__kicker">Что встаёт дальше</p>
+                <p class="content-panel__lead">И в какой-то момент появляются уже совсем другие вопросы:</p>
+              </div>
+
+              <ul class="line-list">
+                <li>— продавать ли тебе свой сыр</li>
+                <li>— какие для этого понадобятся документы</li>
+                <li>— какое помещение нужно под твою сыроварню</li>
+                <li>— какой формат работы тебе подойдёт</li>
               </ul>
             </article>
 
             <article class="content-panel content-panel--accent">
               <div class="content-panel__top">
-                <p class="content-panel__kicker content-panel__kicker--accent">Внутри</p>
-                <h3 class="subheading subheading--panel">Разбираем твой конкретный случай.</h3>
+                <p class="content-panel__kicker content-panel__kicker--accent">И это тоже внутри</p>
+                <p class="content-panel__lead">Потому что в реальной работе это не отдельные темы — это одна система, где всё влияет друг на друга.</p>
               </div>
 
-              <ul class="question-focus-grid">
-                <li class="question-focus-grid__item">Что у тебя реально происходит</li>
-                <li class="question-focus-grid__item">Где именно проблема</li>
-                <li class="question-focus-grid__item">Почему результат получается другим</li>
-                <li class="question-focus-grid__item">Что менять в первую очередь</li>
+              <div class="text-flow text-flow--panel">
+                <p>Решения на одном этапе тянут за собой последствия дальше:</p>
+              </div>
+
+              <ul class="line-list">
+                <li>— можно начать с продаж, а потом упереться в ограничения</li>
+                <li>— можно выбрать оборудование и потом подстраиваться под него</li>
+                <li>— можно оформить документы и позже столкнуться с нюансами</li>
+                <li>— можно подготовить помещение, а потом пересматривать решения</li>
               </ul>
 
-              <p class="content-panel__closing-line">Из практики. На реальном опыте.</p>
+              <p class="content-panel__closing-line">И наоборот — когда смотришь на это как на систему, многие вещи становятся понятнее заранее.<br /><br />Поэтому ядро здесь не в абстрактной теории, а в разборе твоей ситуации через мой реальный опыт.</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="how">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title">Внутри это устроено так</h2>
+          <p class="block__lede">Есть не просто набор материалов, а среда, которая постепенно собирается из практики.</p>
+
+          <div class="content-stack">
+            <article class="content-panel">
+              <div class="content-panel__top">
+                <p class="content-panel__kicker">С одной стороны — платформа.</p>
+                <p class="content-panel__lead">Там:</p>
+              </div>
+
+              <ul class="line-list">
+                <li>— подкасты по теории сыроделия, чтобы собрать понимание процесса</li>
+                <li>— периодически появляются видеоуроки по сырам</li>
+                <li>— разборы по форматам работы, запуску, документам и всей рабочей части вокруг</li>
+              </ul>
+
+              <p class="content-panel__closing-line">Это не записанный курс, а постоянная работа.<br />Материалы постепенно добавляются и дополняются.</p>
+            </article>
+
+            <article class="content-panel content-panel--accent">
+              <div class="content-panel__top">
+                <p class="content-panel__kicker content-panel__kicker--accent">С другой стороны — живое общение.</p>
+                <p class="content-panel__lead">Есть чат и канал.</p>
+              </div>
+
+              <div class="text-flow text-flow--panel">
+                <p>В чате мы разбираем реальные вопросы и ситуации. Я вижу, где не складывается логика, и даю развёрнутые ответы.</p>
+                <p>Если тема важная или повторяется — раскрываю её отдельно в канале.</p>
+              </div>
+            </article>
+
+            <article class="content-panel">
+              <div class="content-panel__top">
+                <p class="content-panel__kicker">Дальше это не теряется.</p>
+                <p class="content-panel__lead">Материалы постепенно собираются в структуру:</p>
+              </div>
+
+              <ul class="line-list">
+                <li>— появляется навигация</li>
+                <li>— темы раскладываются по разделам</li>
+                <li>— к нужному можно вернуться за пару кликов</li>
+              </ul>
+
+              <p class="content-panel__closing-line">По сути, это база знаний, которая растёт из реальных вопросов и практики.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="why">
+        <div class="container block__inner block__inner--narrow" data-reveal>
+          <h2 class="block__title">Почему это работает</h2>
+          <p class="block__lede">Оно складывается постепенно, когда появляется достаточно связей.</p>
+
+          <div class="content-panel content-panel--accent">
+            <div class="text-flow text-flow--panel">
+              <p>Ты задаёшь вопрос. Читаешь ответы на чужие вопросы. Слушаешь теорию. Начинаешь замечать, как одно влияет на другое.</p>
+              <p>И в какой-то момент в голове щёлкает:<br />сыроделие перестаёт быть набором действий и становится системой.</p>
+              <p>И вот тогда становится сильно проще принимать решения.</p>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="block" id="inside">
         <div class="container block__inner block__inner--narrow" data-reveal>
-          <h2 class="block__title block__title--wide">Что ты получаешь внутри</h2>
+          <h2 class="block__title">Что внутри по темам</h2>
+          <p class="block__lede">Не сплошной текст, а темы, которые вырастают из вопросов и постепенно собираются в понятную структуру.</p>
 
-          <div class="content-panels content-panels--2">
-            <article class="content-panel">
-              <div class="content-panel__top">
-                <p class="content-panel__kicker">Что ты получаешь</p>
-                <h3 class="subheading subheading--panel">Не доступ ради доступа, а рабочую систему:</h3>
-              </div>
-
-              <ul class="line-list">
-                <li>— разборы вопросов и реальных ситуаций</li>
-                <li>— прикладная теория простыми словами и на практических примерах</li>
-                <li>— база знаний с навигацией</li>
-                <li>— закрытый чат</li>
-                <li>— технологические рекомендации и иногда техкарты</li>
-                <li>— среду, где люди реально варят</li>
-              </ul>
+          <div class="topic-grid">
+            <article class="topic-card">
+              <h3 class="topic-card__title">Теория сыроделия</h3>
+              <p class="topic-card__text">Подкасты и объяснения простым языком, чтобы не просто повторять действия, а понимать, что происходит в процессе и почему результат получается именно таким.</p>
             </article>
 
-            <article class="content-panel content-panel--accent">
-              <div class="content-panel__top">
-                <p class="content-panel__kicker content-panel__kicker--accent">И самое важное</p>
-                <h3 class="subheading subheading--panel">Разборы чужих вопросов</h3>
-              </div>
+            <article class="topic-card">
+              <h3 class="topic-card__title">Практика по сырам</h3>
+              <p class="topic-card__text">Периодически появляются видеоуроки и практические материалы — как часть общей системы, а не отдельная история.</p>
+            </article>
 
-              <div class="text-flow text-flow--panel">
-                <p>Очень часто именно в <strong>ответе на чужой вопрос</strong> у тебя щёлкает, и ты вспоминаешь <strong>свою ситуацию</strong>.</p>
-                <p>А ещё всё это потом собирается в <strong>базу с навигацией</strong>, куда ты можешь вернуться в нужный момент.</p>
-              </div>
+            <article class="topic-card">
+              <h3 class="topic-card__title">Разборы реальных вопросов</h3>
+              <p class="topic-card__text">Ситуации, ошибки и затыки, которые реально повторяются у людей. Когда тема важная — она раскрывается отдельно и остаётся внутри.</p>
+            </article>
+
+            <article class="topic-card">
+              <h3 class="topic-card__title">Форматы работы в сыроделии</h3>
+              <p class="topic-card__text">Хобби с доходом, домашняя сыроварня, небольшой цех, рост в сторону производства — в чём разница и где основные риски.</p>
+            </article>
+
+            <article class="topic-card">
+              <h3 class="topic-card__title">Документы и оформление</h3>
+              <p class="topic-card__text">Что важно понимать заранее, если смотришь в сторону официальной работы и запуска.</p>
+            </article>
+
+            <article class="topic-card">
+              <h3 class="topic-card__title">Помещение и подготовка к запуску</h3>
+              <p class="topic-card__text">На что смотреть по помещению и какие решения лучше продумать до старта.</p>
+            </article>
+
+            <article class="topic-card">
+              <h3 class="topic-card__title">Продажи и оборудование</h3>
+              <p class="topic-card__text">Как смотреть на продажи, формат работы и выбор оборудования, чтобы потом не подстраиваться под случайные решения.</p>
+            </article>
+
+            <article class="topic-card">
+              <h3 class="topic-card__title">База с навигацией</h3>
+              <p class="topic-card__text">Материалы не теряются, а постепенно собираются в понятную структуру, чтобы можно было вернуться к нужной теме в нужный момент.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="block" id="difference">
-        <div class="container block__inner" data-reveal>
-          <h2 class="block__title block__title--wide">Чем отличается от основного канала</h2>
-
-          <div class="comparison">
-            <div class="comparison__column comparison__column--entry">
-              <div class="text-flow">
-                <h3 class="subheading">Основной канал — это вход.</h3>
-                <p>В основном канале ты получаешь посты, короткие ответы и общую логику.</p>
-              </div>
-
-              <ul class="line-list">
-                <li>— я выкладываю посты и разборы</li>
-                <li>— часть из этого уже широко разбиралась внутри</li>
-                <li>— наружу ты получаешь только часть</li>
-                <li>— этого хватает, чтобы понять направление и общую логику</li>
-              </ul>
-
-            </div>
-
-            <div class="comparison__column comparison__column--club">
-              <div class="text-flow">
-                <p class="eyebrow">Внутри «Сырного комбайна»</p>
-                <h3 class="subheading">Здесь уже глубже.</h3>
-                <p>Не просто ответ, а понимание, на чём он держится.</p>
-              </div>
-
-              <ul class="line-list">
-                <li>— даю прикладную теорию простыми словами</li>
-                <li>— показываю это на своих практических примерах</li>
-                <li>— объясняю, почему вывод именно такой</li>
-                <li>— углубляемся уже под твою ситуацию</li>
-                <li>— и иногда делюсь техкартами и технологическими рекомендациями</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="section-accent section-accent--compact">
-            <div class="text-flow text-flow--compact">
-              <p class="eyebrow">Если максимально просто</p>
-              <p><strong>Бесплатно</strong> — это только малая часть.<br /><strong>Внутри</strong> — не просто ответ, а понимание, на чём он держится и как это применить к твоей ситуации.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="block" id="process">
+      <section class="block" id="path">
         <div class="container block__inner block__inner--narrow" data-reveal>
-          <h2 class="block__title">Как это работает</h2>
+          <h2 class="block__title">На любом этапе пути</h2>
+          <p class="block__lede">Это среда не для одной точки, а для движения дальше с твоего текущего места.</p>
 
-          <ol class="steps">
-            <li>У тебя есть вопрос или проблема</li>
-            <li>Ты задаёшь его в группе</li>
-            <li>Получаешь ответ по делу</li>
-            <li>Уточняешь детали</li>
-            <li>Применяешь уже с пониманием</li>
-          </ol>
+          <div class="content-stack">
+            <div class="text-flow">
+              <p>Среда подхватывает на твоём этапе, а не только с нуля.</p>
+            </div>
 
-          <div class="text-flow">
-            <p>Параллельно изучаешь теорию, чужие разборы и полезные материалы. Со временем у тебя появляется насмотренность и понимание.</p>
+            <div class="journey-grid">
+              <article class="journey-card">
+                <p class="journey-card__kicker">Старт</p>
+                <p class="journey-card__text">Если ты только начал делать сыр — здесь начнёт складываться база и понимание процесса.</p>
+              </article>
+
+              <article class="journey-card">
+                <p class="journey-card__kicker">Домашняя сыроварня</p>
+                <p class="journey-card__text">Если уже варишь дома и думаешь про сыроварню — появится ясность по помещению, документам, оборудованию и запуску.</p>
+              </article>
+
+              <article class="journey-card">
+                <p class="journey-card__kicker">Небольшой цех</p>
+                <p class="journey-card__text">Если смотришь в сторону небольшого цеха — здесь есть темы, которые помогут увидеть риски и логику роста.</p>
+              </article>
+
+              <article class="journey-card journey-card--accent">
+                <p class="journey-card__kicker">Рост</p>
+                <p class="journey-card__text">Если думаешь про объёмы и серьёзную переработку — это тоже не чужая для меня территория.</p>
+              </article>
+            </div>
+
+            <div class="section-accent section-accent--compact">
+              <p class="signal-line">Сюда можно зайти со своего этапа и спокойно двигаться дальше.</p>
+            </div>
           </div>
-        </div>
-      </section>
-
-      <section class="block" id="result">
-        <div class="container block__inner block__inner--narrow" data-reveal>
-          <h2 class="block__title">Что в итоге меняется</h2>
-
-          <div class="text-flow">
-            <p>Самое главное:</p>
-            <p class="focus-line focus-line--soft">Ты перестаёшь действовать вслепую.</p>
-          </div>
-
-          <ul class="line-list">
-            <li>— понимаешь, от чего зависят вкус и текстура</li>
-            <li>— результат становится стабильнее</li>
-            <li>— меньше ошибок на ровном месте</li>
-            <li>— меньше лишних потерь</li>
-            <li>— меньше суеты и нервов</li>
-            <li>— меньше действий наудачу</li>
-          </ul>
-
-          <a class="cta-button cta-button--inline" href="#popup:club" data-gc-popup-open>
-            <span class="cta-button__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                <path
-                  d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.314 0-6 1.79-6 4v1h12v-1c0-2.21-2.686-4-6-4Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            <span>Вступить в «Сырный комбайн»</span>
-          </a>
         </div>
       </section>
 
       <section class="block block--compact" id="fit">
         <div class="container block__inner block__inner--narrow" data-reveal>
-          <h2 class="block__title">Кому это подойдёт</h2>
+          <h2 class="block__title">Особенно подойдёт тем, кто хочет не просто повторять, а понимать</h2>
+          <p class="block__lede">Это не обязательно для всех. Но очень вовремя для тех, кто уже упёрся в потолок случайных решений.</p>
 
-          <div class="text-flow">
-            <p class="cluster-lead fit__lead">Если ты уже варишь сыр — тебе сюда.</p>
-            <p class="fit__intro">Особенно если <strong>результат нестабильный</strong> и хочется не просто повторять действия, а <strong>управлять процессом</strong>.</p>
-            <p>Если:</p>
+          <div class="content-panels content-panels--2">
+            <article class="content-panel content-panel--accent">
+              <ul class="line-list line-list--fit">
+                <li class="fit__item fit__item--accent">— тем, кто уже делает сыр</li>
+                <li>— тем, кто устал от плавающего результата</li>
+                <li>— тем, кто хочет собрать систему в голове</li>
+                <li>— тем, кто хочет видеть причинно-следственные связи</li>
+                <li>— тем, у кого вопросы уже выходят дальше одной только варки</li>
+              </ul>
+            </article>
+
+            <article class="content-panel">
+              <div class="text-flow text-flow--panel">
+                <p>Если тебе пока хватает открытого канала — это нормально.</p>
+                <p>Но если нужен не очередной пост, а место, где начнут собираться понимание и система, тогда ты по адресу.</p>
+              </div>
+            </article>
           </div>
-
-          <ul class="line-list line-list--fit">
-            <li class="fit__item fit__item--accent">— результат нестабильный</li>
-            <li>— есть молоко или объём, который нужно перерабатывать</li>
-            <li>— упёрся в потолок и хочешь двигаться дальше</li>
-            <li>— не хочешь просто повторять действия</li>
-            <li>— хочешь управлять процессом, а не гадать</li>
-          </ul>
         </div>
       </section>
 
       <section class="block" id="author">
         <div class="container author" data-reveal>
-          <div class="author__media">
-            <div class="author__image-wrap">
-              <img
-                class="author__image"
-                src="./expert-cheese-1000.png"
-                alt="Денис Ильченко с сыром"
-                width="1000"
-                height="1333"
-                decoding="async"
-                loading="lazy"
-              />
-            </div>
-            <div class="author__media-note">
-              <span class="author__media-rule" aria-hidden="true"></span>
-              <p class="author__media-text">От 100 литров до 12 тонн переработки в сутки</p>
-            </div>
-          </div>
-
           <div class="author__content">
-            <h2 class="block__title">Опыт, на который можно опереться</h2>
+            <h2 class="block__title">Опыт, на котором всё это собрано</h2>
             <p class="author__name">Денис Ильченко</p>
+            <p class="cluster-lead">Здесь всё строится не на теории ради теории, а на реальной производственной практике.</p>
 
             <div class="content-stack">
               <div class="text-flow text-flow--author">
-                <p>Я в сыроделии с 2013 года и прошёл путь на базе фермерского хозяйства от 100 литров до 12 тонн переработки в сутки. Работал руками, выстраивал процессы и руководил производством как начальник цеха, закрывая все ключевые вопросы.</p>
-                <p>Параллельно уже много лет являюсь главным технологом CASARO, где участвую в разработке оборудования и формировании рабочих решений для сыроделов.</p>
-              </div>
-
-              <div class="section-accent section-accent--compact">
-                <div class="text-flow text-flow--compact">
-                  <p>Мне важно, чтобы внутри ты начал понимать:</p>
-                </div>
-                <ul class="line-list line-list--tight">
-                  <li>— что у тебя на самом деле происходит</li>
-                  <li>— как между собой связаны процессы</li>
-                  <li>— почему результат получается именно таким</li>
-                  <li>— и как им дальше управлять, а не гадать</li>
-                </ul>
+                <figure class="author__media">
+                  <div class="author__image-wrap">
+                    <img
+                      class="author__image"
+                      src="./assets/expert-cheese-1000.png"
+                      alt="Денис Ильченко"
+                      width="1000"
+                      height="1333"
+                      decoding="async"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption class="author__media-note">
+                    <span class="author__media-rule" aria-hidden="true"></span>
+                    <p class="author__media-text">От 100 литров до 12 тонн переработки в сутки</p>
+                  </figcaption>
+                </figure>
+                <p>Я в сыроделии с 2013 года. Прошёл путь на базе фермерского хозяйства от 100 литров до 12 тонн переработки в сутки.</p>
+                <p>Работал руками, выстраивал процессы и руководил производством как начальник цеха.</p>
+                <p>Параллельно много лет являюсь главным технологом CASARO и участвую в разработке оборудования и рабочих решений для сыроделов.</p>
+                <p>Поэтому внутри хорошо понятны и домашняя практика, и запуск сыроварни, и рост в сторону производства.</p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      <section class="block block--compact" id="not-course">
+      <section class="block block--compact" id="result">
         <div class="container block__inner block__inner--narrow" data-reveal>
-          <h2 class="block__title">Чем это не является</h2>
+          <h2 class="block__title">Что это даёт в итоге</h2>
+          <p class="block__lede">Это не просто доступ к материалам.</p>
 
-          <div class="text-flow">
-            <p>Это не:</p>
-          </div>
+          <div class="content-stack">
+            <div class="text-flow">
+              <p>В какой-то момент у тебя появляется понимание того, что у тебя происходит.</p>
+            </div>
 
-          <ul class="line-list">
-            <li>— онлайн-курс «как у всех»</li>
-            <li>— куча видеорецептов</li>
-            <li>— теория ради теории</li>
-            <li>— рассказы в духе «тут всё легко и просто»</li>
-          </ul>
+            <ul class="line-list line-list--tight">
+              <li>— понятнее, что влияет на результат</li>
+              <li>— понятнее, что делать, если что-то пошло не так</li>
+              <li>— меньше действий наугад</li>
+              <li>— появляется логика в том, что ты делаешь</li>
+              <li>— понятнее, куда двигаться дальше</li>
+            </ul>
 
-          <div class="text-flow">
-            <p>Здесь не копят контент ради контента. Здесь начинают понимать процессы, взаимосвязи и то, как управлять результатом.</p>
+            <div class="section-accent section-accent--compact section-accent--result">
+              <p class="signal-line">И появляется опора, на которую можно опираться в работе.</p>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="block block--surface" id="tariffs">
         <div class="container block__inner block__inner--narrow" data-reveal>
-          <h2 class="block__title">Формат участия</h2>
+          <h2 class="block__title">Зайти внутрь можно на 30 дней или на год</h2>
+          <p class="block__lede">Два понятных варианта: спокойно посмотреть, как всё устроено, или работать внутри вдолгую.</p>
 
           <div class="pricing">
             <article class="price-card">
-              <p class="price-card__title">1490 ₽ / месяц</p>
-              <p class="price-card__text">Можно зайти на месяц, посмотреть формат и задать свой первый вопрос.</p>
+              <p class="price-card__eyebrow">На 30 дней</p>
+              <p class="price-card__title">1 490 ₽</p>
+              <p class="price-card__text">Если хочешь спокойно зайти внутрь, посмотреть, как всё устроено, и начать.</p>
             </article>
 
             <article class="price-card price-card--accent">
-              <p class="price-card__title">14 900 ₽ / год</p>
-              <p class="price-card__text">Если хочешь работать вдолгую, спокойно возвращаться к базе и разбирать свои вопросы по ходу.</p>
+              <p class="price-card__eyebrow">На 365 дней</p>
+              <p class="price-card__title">14 900 ₽</p>
+              <p class="price-card__text">Если хочешь работать внутри вдолгую, возвращаться к материалам и не выпадать из процесса.</p>
             </article>
           </div>
 
           <div class="pricing-proof">
-            <p class="pricing-proof__title">Что откроется сразу после входа</p>
+            <p class="pricing-proof__title">Что важно</p>
             <div class="pricing-proof__grid">
-              <p class="pricing-proof__item">Платформа с обучающими материалами, которая постепенно пополняется</p>
-              <p class="pricing-proof__item">Закрытый чат и среда участников</p>
-              <p class="pricing-proof__item">Возможность задать вопрос и разобрать свою ситуацию</p>
+              <p class="pricing-proof__item">Годовой вариант даёт 2 месяца в подарок по сравнению с оплатой помесячно</p>
+              <p class="pricing-proof__item">Начать можно спокойно с 30 дней, если хочешь сначала зайти и посмотреть.</p>
             </div>
           </div>
 
@@ -551,10 +477,10 @@
                   />
                 </svg>
               </span>
-              <span>Вступить в «Сырный комбайн»</span>
+              <span>Выбрать тариф</span>
             </a>
-            <p class="pricing__meta">Финальный шаг</p>
-            <p class="pricing__note">Если формат тебе подходит, заходи в «Сырный комбайн». Внутри уже есть с чего начать.</p>
+            <p class="pricing__meta">Всё просто</p>
+            <p class="pricing__note">Выбираешь формат, потом открывается форма доступа.</p>
           </div>
         </div>
       </section>
@@ -562,11 +488,24 @@
       <section class="block block--cta" id="cta">
         <div class="container block__inner block__inner--narrow block__inner--center" data-reveal>
           <div class="cta-divider" aria-hidden="true"></div>
-          <h2 class="block__title">Если хочешь разбираться, а не гадать, присоединяйся</h2>
+          <h2 class="block__title">Заходи в «Сырный комбайн»</h2>
+          <p class="block__lede">Если нужен не просто контент, а среда, где начнёт собираться система.</p>
 
           <div class="text-flow text-flow--center">
-            <p>* Если пока достаточно просто смотреть, оставайся в основном канале.</p>
+            <p>Открытого канала может быть достаточно. Но если нужна не ещё одна публикация, а место, где станет понятнее, что у тебя происходит, то «Сырный комбайн» как раз для этого.</p>
           </div>
+
+          <a class="cta-button" href="#popup:club" data-gc-popup-open>
+            <span class="cta-button__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                <path
+                  d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.314 0-6 1.79-6 4v1h12v-1c0-2.21-2.686-4-6-4Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span>Выбрать тариф</span>
+          </a>
         </div>
       </section>
 
@@ -615,7 +554,7 @@
             <button class="gc-popup__back" type="button" data-gc-popup-back hidden>Назад</button>
             <p class="gc-popup__eyebrow">Последний шаг</p>
             <h2 class="gc-popup__title" id="gc-popup-title">Выберите тариф</h2>
-            <p class="gc-popup__text" data-gc-popup-text>Нажмите на удобный вариант.</p>
+            <p class="gc-popup__text" data-gc-popup-text>Выбери удобный вариант. Дальше откроется форма доступа.</p>
           </div>
 
           <div class="gc-popup__body">
@@ -626,7 +565,7 @@
                     <h3 class="gc-plan-card__title">Сырный комбайн</h3>
                     <p class="gc-plan-card__term">На 30 дней</p>
                     <p class="gc-plan-card__price">1 490 рублей</p>
-                    <p class="gc-plan-card__hint">Зайти внутрь, посмотреть формат и задать первый вопрос.</p>
+                    <p class="gc-plan-card__hint">Если хочешь спокойно зайти внутрь, посмотреть, как всё устроено, и начать.</p>
                   </div>
 
                   <button class="cta-button gc-plan-card__button" type="button" data-plan-button data-plan="month">
@@ -642,7 +581,7 @@
                         />
                       </svg>
                     </div>
-                    <p>Доступ ко всем материалам клуба — 24/7</p>
+                    <p>База, разборы и чат внутри</p>
                   </div>
                 </article>
 
@@ -654,7 +593,7 @@
                       <p class="gc-plan-card__price">14 900 рублей</p>
                       <p class="gc-plan-card__old-price">17 880</p>
                     </div>
-                    <p class="gc-plan-card__hint">Если хотите работать вдолгую и спокойно возвращаться к базе.</p>
+                    <p class="gc-plan-card__hint">Если хочешь работать внутри вдолгую, возвращаться к материалам и не выпадать из процесса.</p>
                   </div>
 
                   <button class="cta-button gc-plan-card__button" type="button" data-plan-button data-plan="year">
@@ -670,11 +609,11 @@
                         />
                       </svg>
                     </div>
-                    <p>При оплате сразу за год — 2 месяца в подарок</p>
+                    <p>2 месяца в подарок при оплате за год</p>
                   </div>
                 </article>
               </div>
-              <p class="gc-popup__plans-note">Дальше откроется форма доступа, и мы уже ждём вас внутри.</p>
+              <p class="gc-popup__plans-note">Дальше откроется форма доступа.</p>
             </div>
 
             <div class="gc-popup__view gc-popup__view--form" data-gc-view="form" hidden>
@@ -699,18 +638,18 @@
           </button>
 
           <div class="end-prompt__accent" aria-hidden="true"></div>
-          <p class="end-prompt__eyebrow">Ты почти долистал до конца</p>
-          <h2 class="end-prompt__title" id="end-prompt-title">Значит, тебе реально важно разобраться</h2>
+          <p class="end-prompt__eyebrow">Ты почти дошёл до конца</p>
+          <h2 class="end-prompt__title" id="end-prompt-title">Если тебе нужен уже не просто контент, а рабочая среда — ты по адресу</h2>
 
           <div class="end-prompt__copy">
-            <p class="end-prompt__text">Если в голове до сих пор каша и хочется не гадать, а понимать, что происходит, тебе в «Сырный комбайн».</p>
-            <p class="end-prompt__text end-prompt__text--muted">Внутри уже есть база знаний, разборы ситуаций и место, куда можно принести свой вопрос.</p>
-            <p class="end-prompt__note">Пока доступ открыт, заходи.</p>
+            <p class="end-prompt__text">Можно спокойно зайти, выбрать тариф и посмотреть, как всё устроено внутри.</p>
+            <p class="end-prompt__text end-prompt__text--muted">Там уже есть база, разборы, чат и место для твоего вопроса.</p>
+            <p class="end-prompt__note">Дальше откроется форма доступа.</p>
           </div>
 
           <div class="end-prompt__actions">
             <button class="cta-button end-prompt__button" type="button" data-end-prompt-go>
-              <span>Выбрать формат участия</span>
+              <span>Выбрать тариф</span>
             </button>
             <button class="end-prompt__dismiss" type="button" data-end-prompt-close>Пока не сейчас</button>
           </div>
@@ -718,5 +657,6 @@
       </div>
     </main>
     <script src="./script.js" defer></script>
+    <script src="./editor.js" defer></script>
   </body>
 </html>
