@@ -1,12 +1,10 @@
 (function () {
   const params = new URLSearchParams(window.location.search);
-  if (!params.has("editor")) return;
+  const isEditorMode = params.has("editor");
 
   const STORAGE_KEY = "cheese-combine-editor-overrides-v1";
   const root = document.querySelector("[data-landing-root]");
   if (!root) return;
-
-  document.documentElement.classList.add("editor-mode");
 
   const FORMAT_PRESETS = {
     "": { label: "По умолчанию" },
@@ -148,8 +146,15 @@
   ];
 
   const originals = new Map();
-  const overrides = readOverrides();
+  const overrides = isEditorMode ? readOverrides() : {};
   const elements = collectElements();
+  if (!isEditorMode) {
+    applyPublishedOverrides();
+    return;
+  }
+
+  document.documentElement.classList.add("editor-mode");
+
   let selectedId = elements[0]?.id || null;
   let savedFileHandle = null;
 
@@ -393,6 +398,25 @@
     });
 
     return items;
+  }
+
+  async function applyPublishedOverrides() {
+    try {
+      const response = await window.fetch("./landing-editor-overrides.json", { cache: "no-store" });
+      if (!response.ok) return;
+
+      const payload = await response.json();
+      const fileOverrides = payload?.elements;
+      if (!fileOverrides || typeof fileOverrides !== "object") return;
+
+      Object.assign(overrides, fileOverrides);
+
+      elements.forEach(({ element, id }) => {
+        applyOverride(element, overrides[id] || {});
+      });
+    } catch (error) {
+      /* no-op: live landing should stay usable even if overrides file is missing */
+    }
   }
 
   function buildPanel() {
