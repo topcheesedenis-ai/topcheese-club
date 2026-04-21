@@ -8,7 +8,8 @@ if (landing) {
   const revealElements = [...landing.querySelectorAll("[data-reveal]")];
   const stickyCta = landing.querySelector("[data-sticky-cta]");
   const hero = landing.querySelector(".hero");
-  const finalTrigger = landing.querySelector("#cta") || landing.querySelector(".site-footer");
+  const tariffsSection = landing.querySelector("#tariffs");
+  const finalTrigger = landing.querySelector("#cta .cta-button") || landing.querySelector("#cta");
   const gcPopup = document.querySelector("[data-gc-popup]");
   const gcPopupDialog = gcPopup?.querySelector(".gc-popup__dialog");
   const gcPopupTitle = gcPopup?.querySelector(".gc-popup__title");
@@ -113,7 +114,13 @@ if (landing) {
     clearEndPromptTimer();
     endPromptTimer = window.setTimeout(() => {
       openEndPrompt();
-    }, 700);
+    }, 1100);
+  }
+
+  function hasPassedTariffsSection() {
+    if (!tariffsSection) return true;
+    const tariffsBottom = tariffsSection.getBoundingClientRect().bottom;
+    return tariffsBottom <= 0;
   }
 
   function registerGcIntent() {
@@ -177,41 +184,27 @@ if (landing) {
   }
 
   if (endPrompt && finalTrigger) {
-    if (reduceMotion || !canObserve) {
-      const onScroll = () => {
-        if (gcIntentRegistered || endPromptShown) {
-          clearEndPromptTimer();
-          return;
-        }
+    const onScroll = () => {
+      if (gcIntentRegistered || endPromptShown) {
+        clearEndPromptTimer();
+        return;
+      }
 
-        const triggerTop = finalTrigger.getBoundingClientRect().top;
-        if (triggerTop <= window.innerHeight * 1.08) {
-          scheduleEndPrompt();
-        } else {
-          clearEndPromptTimer();
-        }
-      };
+      if (!hasPassedTariffsSection()) {
+        clearEndPromptTimer();
+        return;
+      }
 
-      onScroll();
-      window.addEventListener("scroll", onScroll, { passive: true });
-    } else {
-      const endPromptObserver = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            scheduleEndPrompt();
-            return;
-          }
+      const triggerTop = finalTrigger.getBoundingClientRect().top;
+      if (triggerTop <= window.innerHeight) {
+        scheduleEndPrompt();
+      } else {
+        clearEndPromptTimer();
+      }
+    };
 
-          clearEndPromptTimer();
-        },
-        {
-          threshold: 0.08,
-          rootMargin: "0px 0px 18% 0px",
-        },
-      );
-
-      endPromptObserver.observe(finalTrigger);
-    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
   }
 
   if (gcPopup && gcPopupDialog && gcPopupOpeners.length) {

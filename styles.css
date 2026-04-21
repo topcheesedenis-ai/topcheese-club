@@ -760,7 +760,7 @@ body.body--modal-open {
 .content-panel__top {
   display: grid;
   align-content: start;
-  gap: 14px;
+  gap: 16px;
 }
 
 .content-panel__kicker {
@@ -803,7 +803,7 @@ body.body--modal-open {
   color: var(--text);
   font-size: 1.06rem;
   font-weight: 600;
-  line-height: 1.56;
+  line-height: 1.5;
   max-width: 30ch;
 }
 
@@ -1918,13 +1918,14 @@ body.body--modal-open {
 }
 
 .block--cta {
-  padding-top: 34px;
-  padding-bottom: 88px;
+  padding-top: 48px;
+  padding-bottom: 104px;
 }
 
 .cta-divider {
   width: 88px;
   height: 3px;
+  margin-bottom: 14px;
   border-radius: 999px;
   background: linear-gradient(90deg, rgba(255, 190, 89, 0.08), rgba(255, 190, 89, 0.95), rgba(255, 190, 89, 0.08));
   box-shadow: 0 0 18px rgba(255, 190, 89, 0.16);
@@ -1932,12 +1933,17 @@ body.body--modal-open {
 
 .block--cta .block__title {
   max-width: 14ch;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.block--cta .block__lede {
+  margin-bottom: 28px;
 }
 
 .block--cta .text-flow {
-  gap: 10px;
+  gap: 16px;
   max-width: 38ch;
+  margin-bottom: 28px;
 }
 
 .block--cta .text-flow p:last-child {
@@ -2176,8 +2182,8 @@ body.body--modal-open {
   margin: 0;
   font-family: var(--font-display);
   max-width: 13ch;
-  font-size: clamp(1.14rem, 5.4vw, 1.42rem);
-  line-height: 1.06;
+  font-size: clamp(1.06rem, 4.9vw, 1.28rem);
+  line-height: 1.08;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   text-wrap: balance;
@@ -2191,8 +2197,8 @@ body.body--modal-open {
   margin: 0;
   color: var(--muted);
   max-width: 24ch;
-  font-size: 0.84rem;
-  line-height: 1.42;
+  font-size: 0.78rem;
+  line-height: 1.38;
 }
 
 .gc-popup__text:empty {
@@ -2350,9 +2356,9 @@ body.body--modal-open {
 .gc-plan-card__title {
   max-width: none;
   font-family: var(--font-display);
-  font-size: 1.02rem;
+  font-size: 0.96rem;
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   text-transform: uppercase;
 }
@@ -2360,7 +2366,7 @@ body.body--modal-open {
 .gc-plan-card__term {
   color: rgba(255, 255, 255, 0.72);
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   line-height: 1.2;
@@ -2377,7 +2383,7 @@ body.body--modal-open {
 
 .gc-plan-card__price {
   color: var(--accent-text);
-  font-size: 1.08rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.06;
 }
@@ -2385,13 +2391,13 @@ body.body--modal-open {
 .gc-plan-card__hint {
   max-width: 27ch;
   color: rgba(255, 255, 255, 0.62);
-  font-size: 0.86rem;
-  line-height: 1.42;
+  font-size: 0.8rem;
+  line-height: 1.36;
 }
 
 .gc-plan-card__old-price {
   color: rgba(255, 190, 89, 0.44);
-  font-size: 0.92rem;
+  font-size: 0.84rem;
   font-weight: 700;
   text-decoration: line-through;
 }
@@ -2406,12 +2412,13 @@ body.body--modal-open {
   justify-self: stretch;
   margin-top: 2px;
   min-height: 58px;
+  font-size: 0.9rem;
 }
 
 .gc-popup__plans-note {
   margin: 2px 4px 0;
   color: rgba(255, 255, 255, 0.56);
-  font-size: 0.82rem;
+  font-size: 0.74rem;
   line-height: 1.34;
   text-align: center;
 }
@@ -2548,7 +2555,8 @@ body.body--modal-open {
 
 .end-prompt__copy {
   display: grid;
-  gap: 10px;
+  gap: 14px;
+  margin-top: 6px;
 }
 
 .end-prompt__text {
@@ -2571,7 +2579,7 @@ body.body--modal-open {
 .end-prompt__actions {
   display: grid;
   gap: 12px;
-  margin-top: 2px;
+  margin-top: 12px;
 }
 
 .end-prompt__button {
@@ -2844,8 +2852,8 @@ body.body--modal-open {
 
   .gc-popup__title {
     max-width: none;
-    font-size: clamp(1.02rem, 5.1vw, 1.24rem);
-    line-height: 1.04;
+    font-size: clamp(0.98rem, 4.7vw, 1.16rem);
+    line-height: 1.06;
     letter-spacing: -0.03em;
     text-wrap: nowrap;
   }
@@ -2853,7 +2861,7 @@ body.body--modal-open {
   .gc-popup__text {
     display: block;
     max-width: 20ch;
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     line-height: 1.28;
   }
 
@@ -2900,8 +2908,8 @@ body.body--modal-open {
   }
 
   .gc-plan-card__title {
-    font-size: 0.95rem;
-    line-height: 1.06;
+    font-size: 0.88rem;
+    line-height: 1.08;
   }
 
   .gc-plan-card__head {
@@ -2910,7 +2918,7 @@ body.body--modal-open {
   }
 
   .gc-plan-card__term {
-    font-size: 0.66rem;
+    font-size: 0.62rem;
     letter-spacing: 0.07em;
   }
 
@@ -2919,17 +2927,17 @@ body.body--modal-open {
   }
 
   .gc-plan-card__price {
-    font-size: 1.08rem;
+    font-size: 0.98rem;
   }
 
   .gc-plan-card__old-price {
-    font-size: 0.82rem;
+    font-size: 0.76rem;
   }
 
   .gc-plan-card__hint {
     max-width: 23ch;
     color: rgba(255, 255, 255, 0.5);
-    font-size: 0.74rem;
+    font-size: 0.7rem;
     line-height: 1.28;
   }
 
@@ -2940,14 +2948,14 @@ body.body--modal-open {
     min-height: 54px;
     padding: 12px 16px;
     border-radius: 14px;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     box-shadow: none;
   }
 
   .gc-popup__plans-note {
     margin-top: 4px;
     color: rgba(255, 255, 255, 0.42);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     line-height: 1.22;
   }
 }
@@ -2987,14 +2995,14 @@ body.body--modal-open {
 
   .gc-popup__title {
     max-width: 13ch;
-    font-size: clamp(1.16rem, 2.05vw, 1.42rem);
+    font-size: clamp(1.02rem, 1.52vw, 1.2rem);
     letter-spacing: -0.02em;
     text-wrap: balance;
   }
 
   .gc-popup__text {
     max-width: none;
-    font-size: 0.92rem;
+    font-size: 0.86rem;
   }
 
   .gc-popup__body {
@@ -3040,20 +3048,20 @@ body.body--modal-open {
 
   .gc-plan-card__title {
     max-width: none;
-    font-size: clamp(1rem, 1.72vw, 1.16rem);
-    line-height: 1.16;
+    font-size: clamp(0.94rem, 1.18vw, 1.06rem);
+    line-height: 1.14;
   }
 
   .gc-plan-card__term {
-    font-size: 0.74rem;
+    font-size: 0.68rem;
   }
 
   .gc-plan-card__price {
-    font-size: clamp(1.28rem, 2.35vw, 1.6rem);
+    font-size: clamp(1.12rem, 1.72vw, 1.32rem);
   }
 
   .gc-plan-card__old-price {
-    font-size: 0.94rem;
+    font-size: 0.82rem;
   }
 
   .gc-plan-card__feature {
@@ -3067,8 +3075,8 @@ body.body--modal-open {
 
   .gc-plan-card__feature p {
     max-width: 22ch;
-    font-size: 0.94rem;
-    line-height: 1.45;
+    font-size: 0.84rem;
+    line-height: 1.38;
   }
 
   .gc-plan-card__icon {
@@ -3083,9 +3091,10 @@ body.body--modal-open {
 
   .gc-plan-card__button {
     width: fit-content;
-    min-width: 200px;
+    min-width: 188px;
     justify-self: center;
     margin-top: auto;
+    font-size: 0.9rem;
   }
 
   .end-prompt {
@@ -3480,6 +3489,12 @@ body.body--modal-open {
     max-width: 52ch;
   }
 
+  #scope .content-panel__closing-line {
+    align-self: auto;
+    margin-top: 4px;
+    max-width: 52ch;
+  }
+
   #why .content-panel {
     max-width: none;
     margin-inline: 0;
@@ -3677,11 +3692,11 @@ body.body--modal-open {
 
   .author__media {
     float: right;
-    width: min(40%, 340px);
-    max-width: 340px;
-    margin: -8px 0 22px 36px;
+    width: min(34%, 300px);
+    max-width: 300px;
+    margin: 8px 0 18px 30px;
     shape-outside: none;
-    shape-margin: 16px;
+    shape-margin: 12px;
   }
 
   .author__image-wrap {
@@ -3697,6 +3712,18 @@ body.body--modal-open {
     height: auto;
     object-fit: contain;
     object-position: center top;
+  }
+
+  .author__media-note {
+    order: -1;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .author__media-text {
+    max-width: 20ch;
+    font-size: 0.9rem;
+    line-height: 1.34;
   }
 
   .text-flow--author {
