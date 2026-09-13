@@ -1,0 +1,10 @@
+{
+  "name": "topcheese-club",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static production packaging for the existing ONREZA deployment",
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "test": "node --test club-prototype/tests/*.test.cjs"
+  }
+}
