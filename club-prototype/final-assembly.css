@@ -321,6 +321,7 @@
   :root { --section-y: 64px; --section-y-compact: 48px; --type-body: .98rem; }
   .landing .block__inner { gap: 32px; }
   .landing .hero__copy { gap: 24px; }
+  .landing .hero__copy > .buy { margin-top: 12px; }
   .landing .hero__offer { font-weight: 500; }
   .landing .hero__text { font-size: 1rem; }
   .numbers-band { padding-block: 24px; }
