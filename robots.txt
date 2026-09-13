@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /club-prototype/docs/
+Disallow: /club-prototype/tests/
+Disallow: /club-prototype/HANDOFF.md
+Sitemap: https://club.topcheese.online/sitemap.xml
