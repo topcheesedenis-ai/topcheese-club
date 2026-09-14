@@ -10,10 +10,10 @@
   <link rel="canonical" href="https://club.topcheese.online/welcome">
   <link rel="icon" href="/club-prototype/assets/cheese-combine-cutout.png">
   <link rel="stylesheet" href="/club-prototype/cookie-consent.css?v=inline-2">
-  <link rel="stylesheet" href="/welcome/welcome.css?v=welcome-amber-3">
+  <link rel="stylesheet" href="/welcome/welcome.css?v=shared-video-1">
   <script src="/club-prototype/cookie-consent.js?v=optional-banner-2" defer></script>
-  <script src="/welcome/config.js?v=desktop-video-1" defer></script>
-  <script src="/welcome/welcome.js?v=desktop-video-1" defer></script>
+  <script src="/welcome/config.js?v=shared-video-1" defer></script>
+  <script src="/welcome/welcome.js?v=shared-video-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">К инструкции</a>
@@ -32,15 +32,11 @@
       <section class="watch" aria-labelledby="video-heading">
         <div class="video-toolbar">
           <h2 id="video-heading">Начните с видео</h2>
-          <div class="device-tabs" role="tablist" aria-label="Устройство для видеоинструкции">
-            <button id="tab-desktop" type="button" role="tab" data-device="desktop" aria-selected="true" aria-controls="video-panel" tabindex="0"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 21h8m-4-5v5"/></svg>Компьютер</button>
-            <button id="tab-mobile" type="button" role="tab" data-device="mobile" aria-selected="false" aria-controls="video-panel" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg>Смартфон</button>
-          </div>
         </div>
-        <div class="video-panel" id="video-panel" role="tabpanel" aria-labelledby="tab-desktop" tabindex="0">
+        <div class="video-panel" id="video-panel">
           <div class="video-placeholder" data-video-placeholder>
             <span class="video-mark brand-mark" aria-hidden="true"></span>
-            <p class="video-device" data-video-title>Как войти с компьютера</p>
+            <p class="video-caption" data-video-title>Как войти на платформу и начать работу</p>
             <p class="video-pending">Видеоинструкция скоро появится</p>
             <p class="video-hint">Пока следуйте четырём шагам ниже.</p>
           </div>
@@ -49,7 +45,7 @@
           <a class="platform-button" data-link="platformUrl" target="_blank" rel="noopener noreferrer">Перейти на платформу <span aria-hidden="true">↗</span></a>
           <p class="login-note"><strong>Логин — ваш e-mail, указанный при оплате.</strong><br>Пароль отправлен на эту почту.<br>Если письма нет, проверьте папку «Спам».</p>
         </div>
-        <noscript><p class="login-note">Для кнопок и переключения видео включите JavaScript. Войти на платформу также можно по ссылке в письме, отправленном после оплаты.</p></noscript>
+        <noscript><p class="login-note">Для кнопок и просмотра видео включите JavaScript. Войти на платформу также можно по ссылке в письме, отправленном после оплаты.</p></noscript>
       </section>
 
       <section class="getting-started" aria-labelledby="steps-heading">
