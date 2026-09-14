@@ -100,7 +100,7 @@ test('the same configured video appears on every screen and resizing keeps the p
       assert.equal(await page.locator('[data-video-placeholder]').isVisible(), false);
       assert.equal(await frame.getAttribute('allowfullscreen'), '');
       const box = await frame.boundingBox();
-      assert.ok(Math.abs(box.width / box.height - 16 / 9) < .02);
+      assert.ok(Math.abs(box.width / box.height - 1920 / 1002) < .02);
       await page.setViewportSize({ width: width < 700 ? 1440 : 390, height: 900 });
       assert.equal(await frame.count(), 1);
       assert.equal(loads, 1);

@@ -12,6 +12,6 @@ window.CLUB_WELCOME = {
     title: "Как войти на платформу и начать работу",
     // Общая инструкция для компьютера и телефона: src из кода встраивания VK.
     embedUrl: "https://vkvideo.ru/video_ext.php?oid=-212599640&id=456239049&hash=240edae4ac390841&hd=3",
-    aspectRatio: "16 / 9"
+    aspectRatio: "1920 / 1002"
   }
 };
