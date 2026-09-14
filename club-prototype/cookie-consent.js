@@ -16,7 +16,8 @@
     let choice = read();
     const integrations = new Map();
     const active = new Map();
-    const get = () => ({ necessary: true, analytics: false, marketing: false, ...choice });
+    // Site defaults are enabled; an explicitly saved opt-out always wins.
+    const get = () => ({ necessary: true, analytics: true, marketing: true, ...choice });
     const isAllowed = category => categories.includes(category) && get()[category] === true;
 
     function reconcile() {
@@ -60,7 +61,7 @@
       save({ analytics = false, marketing = false }) {
         const next = { version: VERSION, necessary: true, analytics: analytics === true,
           marketing: marketing === true, updatedAt: new Date().toISOString() };
-        // Do not report a saved choice or launch trackers if persistence fails.
+        // Do not report a saved choice or apply new settings if persistence fails.
         try { storage.setItem(KEY, JSON.stringify(next)); }
         catch (error) { onError(error); return false; }
         choice = next;
@@ -88,8 +89,8 @@
     onError: error => console.warn('Cookie consent:', error),
   });
 
-  // Small registry API for future counters/pixels. Registration itself performs
-  // no network requests. Put ALL vendor initialization inside start().
+  // Registration starts permitted integrations once. Put ALL vendor
+  // initialization inside start() so saved opt-outs remain effective.
   window.ClubCookieConsent = Object.freeze({
     get: manager.get,
     hasChoice: manager.hasChoice,
@@ -120,30 +121,8 @@
   let opener = null;
 
   function updateBanner() {
-    banner.hidden = manager.hasChoice() || dialog.open;
+    banner.hidden = manager.hasChoice();
     document.documentElement.classList.toggle('cookie-banner-visible', !banner.hidden);
-    updateDockHeight();
-  }
-  function updateDockHeight() {
-    const height = banner.hidden ? 0 : Math.ceil(banner.getBoundingClientRect().height);
-    document.documentElement.style.setProperty('--cookie-banner-height',
-      `${height}px`);
-    // Measure collisions against the resting dock, not its shifted position,
-    // so scrolling cannot alternate between two positions.
-    const rect = banner.getBoundingClientRect();
-    const currentLift = parseFloat(document.documentElement.style.getPropertyValue('--cookie-dock-lift')) || 0;
-    const restingBottom = rect.bottom + currentLift;
-    const restingTop = restingBottom - height;
-    let lift = 0;
-    if (!banner.hidden) purchaseButtons.forEach(button => {
-      const cta = button.getBoundingClientRect();
-      if (cta.width && cta.right > rect.left && cta.left < rect.right &&
-          cta.top < restingBottom + 12 && cta.bottom > restingTop - 12 && cta.top < innerHeight) {
-        // Include the landing's existing 16px entrance motion in the clearance.
-        lift = Math.max(lift, restingBottom - cta.top + 28);
-      }
-    });
-    document.documentElement.style.setProperty('--cookie-dock-lift', `${Math.max(0, lift)}px`);
   }
   function openSettings() {
     if (dialog.open) return;
@@ -196,14 +175,5 @@
       marketing.checked = consent.marketing;
     }
   });
-  if ('ResizeObserver' in window) new ResizeObserver(updateDockHeight).observe(banner);
-  else window.addEventListener('resize', updateDockHeight);
-  let dockFrame = 0;
-  function scheduleDockUpdate() {
-    if (dockFrame) return;
-    dockFrame = requestAnimationFrame(() => { dockFrame = 0; updateDockHeight(); });
-  }
-  window.addEventListener('scroll', scheduleDockUpdate, { passive: true });
-  window.addEventListener('resize', scheduleDockUpdate);
   updateBanner();
 })();

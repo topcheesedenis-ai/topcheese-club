@@ -6,7 +6,8 @@ const path = require('node:path');
 const { createConsentManager } = require('../cookie-consent.js');
 const code = fs.readFileSync(path.join(__dirname, '../cookie-integrations.js'), 'utf8');
 
-function setup(saved = null) {
+const disabledChoice = JSON.stringify({ version: 1, necessary: true, analytics: false, marketing: false });
+function setup(saved = disabledChoice) {
   let stored = saved;
   let reloads = 0;
   const scripts = [];
@@ -33,12 +34,20 @@ function setup(saved = null) {
     load() { window.ym = (...args) => calls.push(args); scripts[0].load(); } };
 }
 
-test('no consent, necessary-only and marketing-only create no Metrika script or global', () => {
+test('saved necessary-only and marketing-only create no Metrika script or global', () => {
   const h = setup();
   h.manager.save({});
   h.manager.save({ marketing: true });
   assert.equal(h.scripts.length, 0);
   assert.equal(h.window.ym, undefined);
+});
+test('new visitors load Metrika by default and accepting does not initialize it again', () => {
+  const h = setup(null);
+  assert.equal(h.manager.hasChoice(), false);
+  assert.equal(h.scripts.length, 1);
+  h.load(); h.manager.save({ analytics: true, marketing: true });
+  assert.equal(h.scripts.length, 1);
+  assert.equal(h.calls.length, 1);
 });
 test('analytics loads the exact supplied counter once, with every supplied option', () => {
   const h = setup(); h.manager.save({ analytics: true });
@@ -77,4 +86,18 @@ test('missing consent manager fails closed', () => {
   const window = {};
   vm.runInNewContext(code, { window });
   assert.equal(window.ym, undefined);
+});
+
+test('revocation preserves the live Yandex queue hook so destruct reaches the library', () => {
+  const h = setup(); h.manager.save({ analytics: true });
+  const commands = [];
+  const queue = h.window.ym.a = [];
+  queue.push = function (...items) {
+    commands.push(...items.map(call => call[1]));
+    return Array.prototype.push.apply(this, items);
+  };
+  h.scripts[0].load();
+  h.manager.save({});
+  assert.equal(h.window.ym.a, queue);
+  assert.deepEqual(commands, ['init', 'destruct']);
 });

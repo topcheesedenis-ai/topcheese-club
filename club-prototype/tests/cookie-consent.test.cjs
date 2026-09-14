@@ -2,7 +2,8 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { createConsentManager, KEY } = require('../cookie-consent.js');
 
-function harness(raw = null) {
+const disabledChoice = JSON.stringify({ version: 1, necessary: true, analytics: false, marketing: false });
+function harness(raw = disabledChoice) {
   let stored = raw;
   const log = [];
   const storage = { getItem: () => stored, setItem: (key, value) => {
@@ -19,15 +20,26 @@ function harness(raw = null) {
   return { manager, log, stored: () => stored, storage, replace: value => { stored = value; } };
 }
 
-test('new, corrupt, partial and old-version consent all fail closed', () => {
+test('without a valid saved choice both categories use the enabled site defaults', () => {
   for (const raw of [null, 'broken', '{}', '{"version":0,"analytics":true,"marketing":true}',
     '{"version":1,"necessary":true,"analytics":"true","marketing":true}']) {
     const { manager, log } = harness(raw);
     assert.equal(manager.hasChoice(), false);
-    assert.equal(manager.isAllowed('analytics'), false);
-    assert.equal(manager.isAllowed('marketing'), false);
-    assert.deepEqual(log, []);
+    assert.equal(manager.isAllowed('analytics'), true);
+    assert.equal(manager.isAllowed('marketing'), true);
+    assert.deepEqual(log, ['start:analytics', 'start:marketing']);
   }
+});
+test('accepting defaults does not restart integrations; opting out survives reload', () => {
+  const h = harness(null);
+  assert.equal(h.manager.hasChoice(), false);
+  h.manager.save({ analytics: true, marketing: true });
+  assert.deepEqual(h.log, ['start:analytics', 'start:marketing']);
+  h.manager.save({});
+  assert.deepEqual(h.log.slice(2), ['abort:analytics', 'stop:analytics', 'abort:marketing', 'stop:marketing', 'reload']);
+  const next = harness(h.stored());
+  assert.equal(next.manager.hasChoice(), true);
+  assert.deepEqual(next.log, []);
 });
 test('save necessary-only survives a fresh page; no optional integration starts', () => {
   const h = harness();
@@ -59,10 +71,10 @@ test('revocation persists first, aborts and cleans up, then reloads', () => {
   assert.deepEqual(h.log, ['abort:marketing', 'stop:marketing', 'reload']);
   assert.deepEqual(harness(h.stored()).log, ['start:analytics']);
 });
-test('cross-tab removal withdraws all optional consent', () => {
+test('cross-tab saved opt-out withdraws optional consent', () => {
   const h = harness(); h.manager.save({ analytics: true }); h.log.length = 0;
-  h.replace(null); h.manager.sync();
-  assert.equal(h.manager.hasChoice(), false);
+  h.replace(disabledChoice); h.manager.sync();
+  assert.equal(h.manager.hasChoice(), true);
   assert.deepEqual(h.log, ['abort:analytics', 'stop:analytics', 'reload']);
 });
 test('late registration observes current consent and rejects invalid categories/duplicates', () => {
@@ -73,7 +85,7 @@ test('late registration observes current consent and rejects invalid categories/
   assert.throws(() => h.manager.register({ id: 'typo', category: 'analytcs', start() {} }));
   assert.equal(h.manager.isAllowed('analytcs'), false);
 });
-test('unavailable storage neither starts tracking nor pretends the choice was saved', () => {
+test('unavailable storage uses the defaults but never pretends a choice was saved', () => {
   const errors = []; let started = false;
   const manager = createConsentManager({
     storage: { getItem() { throw Error('blocked'); }, setItem() { throw Error('blocked'); } },
@@ -82,7 +94,7 @@ test('unavailable storage neither starts tracking nor pretends the choice was sa
   manager.register({ id: 'test', category: 'analytics', start() { started = true; } });
   assert.equal(manager.save({ analytics: true }), false);
   assert.equal(manager.hasChoice(), false);
-  assert.equal(started, false);
+  assert.equal(started, true);
   assert.equal(errors.length, 1);
 });
 test('one broken integration does not prevent other permitted integrations from loading', () => {

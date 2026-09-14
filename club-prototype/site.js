@@ -208,6 +208,16 @@ if (landing) {
   }
 
   if (gcPopup && gcPopupDialog && gcPopupOpeners.length) {
+    const reachClubGoal = (goal, params = {}) => {
+      try {
+        if (window.ClubCookieConsent?.isAllowed("analytics") && typeof window.ym === "function") {
+          window.ym(112548973, "reachGoal", goal, params);
+        }
+      } catch (error) {
+        // Analytics must never prevent access to the GetCourse form.
+      }
+    };
+
     const gcWidgets = {
       month: {
         mount: gcWidgetMounts.month,
@@ -362,7 +372,11 @@ if (landing) {
       button.addEventListener("pointerdown", warmGcWidgets, { passive: true });
       button.addEventListener("click", (event) => {
         event.preventDefault();
+        const wasOpen = gcPopup.classList.contains("gc-popup--visible");
         openGcPopup();
+        if (event.isTrusted && !wasOpen) {
+          reachClubGoal("club_nazhal_poluchit_dostup");
+        }
       });
     });
 
@@ -377,9 +391,13 @@ if (landing) {
     }
 
     gcPopupPlanButtons.forEach((button) => {
-      button.addEventListener("click", () => {
+      button.addEventListener("click", (event) => {
         const plan = button.dataset.plan;
-        if (!plan) return;
+        if (plan !== "month" && plan !== "year") return;
+        if (event.isTrusted) {
+          reachClubGoal("club_vybral_tarif", { tarif: plan === "month" ? "mesyats" : "god" });
+        }
+        // GetCourse opens inside this page; no navigation or analytics callback wait is needed.
         setGcPopupView("form", plan);
         window.requestAnimationFrame(() => loadGcWidget(plan));
       });

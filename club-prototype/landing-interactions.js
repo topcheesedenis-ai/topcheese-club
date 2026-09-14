@@ -108,7 +108,17 @@
     map.removeAttribute('aria-hidden');
     visual.dispatchEvent(new CustomEvent('club-map:reveal', { detail: { focus: hadFocus, morph } }));
     if (morph) {
-      parts.forEach((element, index) => animate(element, [{ transform: transforms[index] }, { transform: 'none' }], { duration: 520 }));
+      parts.forEach((element, index) => {
+        const frames = [{ transform: transforms[index] }];
+        if (index > 0) {
+          // Separate the seal's stacked logo/title horizontally before closing
+          // their vertical gap, so the larger hub never crosses its own text.
+          const start = new DOMMatrixReadOnly(transforms[index]);
+          frames.push({ transform: `translate(0px, ${start.m42}px) scale(1)`, offset: .55 });
+        }
+        frames.push({ transform: 'none' });
+        animate(element, frames, { duration: 520 });
+      });
       animate(root.querySelector('.cv-metric'), [{ opacity: 0 }, { opacity: 1 }], { duration: 200, delay: 360, fill: 'backwards' });
     }
   }
@@ -147,22 +157,6 @@
     const copyItems = [...copy.children];
     copyItems.forEach(element => element.classList.add('motion-prepared'));
     revealItems(copyItems).then(() => { copyReady = true; updateGate(); });
-  }
-
-  // Ordinary sections share the same motion, once, with headings before content.
-  const groups = [...document.querySelectorAll('.numbers-band > .container, .block > .container')];
-  function sectionItems(group) {
-    const children = [...group.children];
-    return children.flatMap(child => child.matches('.section-heading, .author__content') ? [...child.children] : [child]);
-  }
-  if ('IntersectionObserver' in window && !reduced.matches) {
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      observer.unobserve(entry.target);
-      entry.target.classList.add('motion-seen');
-      revealItems(sectionItems(entry.target));
-    }), { threshold: 0, rootMargin: '0px 0px -30px 0px' });
-    groups.forEach(group => { sectionItems(group).forEach(item => item.classList.add('motion-prepared')); observer.observe(group); });
   }
 
   // Native details provide the fallback and semantics; animate only the answer body.
@@ -211,7 +205,7 @@
       toggle.textContent = expanded ? 'Скрыть отзывы' : 'Показать ещё отзывы';
       toggle.setAttribute('aria-expanded', String(expanded));
       layoutReviews();
-      if (withMotion) revealItems(newlyVisible);
+      if (withMotion) reviewRoot.dispatchEvent(new CustomEvent('site:reviews', { detail: newlyVisible }));
     }
     toggle.addEventListener('click', () => {
       expanded = !expanded; updateReviews(true);

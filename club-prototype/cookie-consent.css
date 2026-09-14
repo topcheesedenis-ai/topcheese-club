@@ -1,4 +1,5 @@
 /* Scoped consent UI; the landing's typography, palette and CTA stay unchanged. */
+.cookie-banner-visible body { background: #1b1b18; }
 .cookie-banner, .cookie-dialog {
   box-sizing: border-box;
   color: var(--text, #f2efe8);
@@ -10,15 +11,19 @@
 }
 .cookie-banner[hidden], .cookie-error[hidden] { display: none; }
 .cookie-banner {
-  position: fixed;
-  z-index: 35;
-  left: 20px;
-  bottom: calc(20px + env(safe-area-inset-bottom) + var(--cookie-dock-lift, 0px));
-  width: min(430px, calc(100% - 40px));
-  padding: 20px;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 24px;
+  width: min(1400px, calc(100% - 64px));
+  margin: 12px auto 0;
+  padding: 14px 20px;
+  box-shadow: none;
 }
 .cookie-banner h2, .cookie-dialog h2 { margin: 0; font-size: 1rem; font-weight: 600; line-height: 1.4; letter-spacing: -.015em; }
-.cookie-banner p { margin: 8px 0 16px; max-width: none; color: var(--muted); font-size: .8rem; line-height: 1.6; }
+.cookie-banner h2 { font-size: .9375rem; }
+.cookie-banner p { grid-column: 1; margin: 0; max-width: none; color: var(--muted); font-size: .8125rem; line-height: 1.6; }
+.cookie-banner .cookie-actions { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
 .cookie-actions { display: flex; gap: 12px; align-items: center; }
 .cookie-button {
   appearance: none; min-height: 44px; padding: 12px 20px;
@@ -57,17 +62,19 @@ html:has(.cookie-dialog[open]) { overflow: hidden; }
 .cookie-error, .cookie-banner .cookie-error { color: var(--text); font-size: .75rem; line-height: 1.5; margin: 12px 0 0; }
 /* The purchase dialog remains above the banner; no competing overlay. */
 body.body--modal-open .cookie-banner { visibility: hidden; }
-@media (max-width: 799px) {
-  .cookie-banner-visible .landing .sticky-cta { bottom: calc(var(--cookie-banner-height, 200px) + var(--cookie-dock-lift, 0px) + 24px + env(safe-area-inset-bottom)); }
-}
 @media (max-width: 699px) {
-  .cookie-banner { left: 12px; bottom: calc(12px + env(safe-area-inset-bottom) + var(--cookie-dock-lift, 0px)); width: calc(100% - 24px); padding: 16px; }
+  .cookie-banner { width:calc(100% - 32px); padding:14px 16px; grid-template-columns:1fr; gap:8px; }
+  .cookie-banner .cookie-actions { grid-column:1; grid-row:auto; margin-top:4px; }
   .cookie-banner .cookie-actions > * { flex: 1; }
-  .cookie-banner p { margin-bottom: 12px; font-size: .75rem; }
+  .cookie-banner p { font-size: .75rem; }
   .cookie-banner h2 { font-size: .9rem; }
-  .cookie-banner-visible .site-footer { padding-bottom: calc(var(--cookie-banner-height, 200px) + 100px); }
   .cookie-dialog { padding: 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .cookie-button, .cookie-switch span, .cookie-switch span::after { transition: none; }
+}
+
+/* The consent strip uses its own space above the hero, including on short laptops. */
+@media(min-width:700px) {
+  .cookie-banner .cookie-button, .cookie-dialog .cookie-button { font-size:.8125rem; }
 }

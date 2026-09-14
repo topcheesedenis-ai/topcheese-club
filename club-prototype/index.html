@@ -30,8 +30,8 @@
     <link rel="stylesheet" href="./base.css?v=production-1" />
     <link rel="stylesheet" href="./prototype.css?v=final-assembly-3" />
     <link rel="stylesheet" href="./club-logo.css?v=local-icons-1" />
-    <link rel="stylesheet" href="./final-assembly.css?v=mobile-price-spacing-1" />
-    <link rel="stylesheet" href="./cookie-consent.css?v=2" />
+    <link rel="stylesheet" href="./final-assembly.css?v=desktop-amber-1" />
+    <link rel="stylesheet" href="./cookie-consent.css?v=inline-2" />
   </head>
   <body>
     <!-- Same-document copy of assets/icons/club-icons.svg; keep Lucide paths and license unchanged. -->
@@ -64,6 +64,16 @@
   <path d="M8 11h.01" />
   <path d="M8 16h.01" />
 </symbol></svg>
+    <aside class="cookie-banner" data-cookie-banner aria-labelledby="cookie-banner-title" hidden>
+      <h2 id="cookie-banner-title">Мы используем cookie</h2>
+      <p>Аналитика включена по умолчанию. Отключить её можно в настройках.</p>
+      <div class="cookie-actions">
+        <button class="cookie-button cookie-button--primary" type="button" data-cookie-accept>ПРИНЯТЬ</button>
+        <button class="cookie-button cookie-button--text" type="button" data-cookie-customize>Настроить</button>
+      </div>
+      <p class="cookie-error" data-cookie-error role="status" hidden>Не удалось сохранить выбор. Проверьте, разрешено ли сохранение данных сайта в браузере, и попробуйте ещё раз.</p>
+    </aside>
+
     <main class="landing" data-landing-root>
       <!-- BLOCK 01 — HERO -->
       <section class="hero" id="top">
@@ -631,15 +641,6 @@
       </div>
     </main>
 
-    <aside class="cookie-banner" data-cookie-banner aria-labelledby="cookie-banner-title" hidden>
-      <h2 id="cookie-banner-title">Мы используем cookie</h2>
-      <p>Они помогают анализировать работу сайта и делать его удобнее.</p>
-      <div class="cookie-actions">
-        <button class="cookie-button cookie-button--primary" type="button" data-cookie-accept>ПРИНЯТЬ</button>
-        <button class="cookie-button cookie-button--text" type="button" data-cookie-customize>Настроить</button>
-      </div>
-      <p class="cookie-error" data-cookie-error role="status" hidden>Не удалось сохранить выбор. Проверьте, разрешено ли сохранение данных сайта в браузере, и попробуйте ещё раз.</p>
-    </aside>
 
     <dialog class="cookie-dialog" data-cookie-dialog aria-labelledby="cookie-dialog-title">
       <form>
@@ -664,11 +665,12 @@
       </form>
     </dialog>
 
-    <script src="./cookie-consent.js?v=2" defer></script>
-    <script src="./cookie-integrations.js?v=metrika-1" defer></script>
-    <script src="./site.js?v=production-1" defer></script>
-    <script src="./club-map.data.js?v=practice-topics-1" defer></script>
-    <script src="./landing-interactions.js?v=review-masonry-1" defer></script>
-    <script src="./club-map.js?v=local-icons-1" defer></script>
+    <script src="./cookie-consent.js?v=defaults-on-1" defer></script>
+    <script src="./cookie-integrations.js?v=consent-cleanup-1" defer></script>
+    <script src="./site.js?v=club-goals-1" defer></script>
+    <script src="./club-map.data.js?v=podcast-meta-1" defer></script>
+    <script src="./landing-interactions.js?v=hub-path-1" defer></script>
+    <script src="./club-map.js?v=graph-hub-1" defer></script>
+    <script src="./site-motion.js?v=cta-loop-1" defer></script>
   </body>
 </html>

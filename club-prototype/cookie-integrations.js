@@ -45,7 +45,11 @@
       return () => {
         // Also cancel a queued init if consent was withdrawn before tag.js ran.
         if (Array.isArray(window.ym?.a)) {
-          window.ym.a = window.ym.a.filter(call => call[0] !== counterId);
+          // Keep the array: the live library hooks its push method.
+          const queue = window.ym.a;
+          for (let index = queue.length - 1; index >= 0; index--) {
+            if (queue[index][0] === counterId) queue.splice(index, 1);
+          }
         }
         if (initialized) window.ym(counterId, 'destruct');
         script?.remove();
