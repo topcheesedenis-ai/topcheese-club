@@ -21,4 +21,8 @@ fs.cpSync(path.join(source, 'assets'), path.join(output, 'club-prototype', 'asse
   recursive: true,
   filter: file => path.basename(file) !== '.DS_Store'
 });
-console.log('Static landing packaged in dist/; no compilation or content changes.');
+fs.mkdirSync(path.join(output, 'welcome'), { recursive: true });
+for (const file of ['index.html', 'welcome.css', 'config.js', 'welcome.js']) {
+  fs.copyFileSync(path.join(root, 'welcome', file), path.join(output, 'welcome', file));
+}
+console.log('Static landing and /welcome packaged in dist/.');
