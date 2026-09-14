@@ -82,7 +82,7 @@ test('responsive onboarding defaults, links and placeholders work without analyt
 
 test('the same configured video appears on every screen and resizing keeps the player', async () => {
   const browser = await chromium.launch();
-  const videoUrl = 'https://vkvideo.ru/video_ext.php?oid=-212599640&id=456239049&hash=240edae4ac390841&hd=3';
+  const videoUrl = 'https://vkvideo.ru/video_ext.php?oid=-212599640&id=456239050&hash=b13bdf82db234533&hd=3&autoplay=1';
   try {
     for (const width of [320, 360, 390, 430, 768, 1440]) {
       const page = await browser.newPage({ viewport: { width, height: 900 } });
