@@ -121,6 +121,7 @@
   let opener = null;
 
   function updateBanner() {
+    if (!banner) return; // Instruction pages can offer settings without a consent strip.
     banner.hidden = manager.hasChoice();
     document.documentElement.classList.toggle('cookie-banner-visible', !banner.hidden);
   }
@@ -144,9 +145,9 @@
     updateBanner();
   }
 
-  banner.querySelector('[data-cookie-accept]').addEventListener('click', () =>
+  banner?.querySelector('[data-cookie-accept]')?.addEventListener('click', () =>
     save(true, banner.querySelector('[data-cookie-error]')));
-  banner.querySelector('[data-cookie-customize]').addEventListener('click', openSettings);
+  banner?.querySelector('[data-cookie-customize]')?.addEventListener('click', openSettings);
   footerLink.addEventListener('click', openSettings);
   form.addEventListener('submit', event => {
     event.preventDefault();

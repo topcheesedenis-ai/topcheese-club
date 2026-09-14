@@ -9,7 +9,9 @@
   <title>Добро пожаловать — Сырный комбайн</title>
   <link rel="canonical" href="https://club.topcheese.online/welcome">
   <link rel="icon" href="/club-prototype/assets/cheese-combine-cutout.png">
-  <link rel="stylesheet" href="/welcome/welcome.css?v=welcome-1">
+  <link rel="stylesheet" href="/club-prototype/cookie-consent.css?v=inline-2">
+  <link rel="stylesheet" href="/welcome/welcome.css?v=welcome-footer-2">
+  <script src="/club-prototype/cookie-consent.js?v=optional-banner-2" defer></script>
   <script src="/welcome/config.js?v=welcome-1" defer></script>
   <script src="/welcome/welcome.js?v=welcome-1" defer></script>
 </head>
@@ -77,7 +79,40 @@
         </div>
       </section>
     </main>
-    <footer class="page-footer"><span>Сырный комбайн</span><span>Увидимся внутри.</span></footer>
+    <footer class="page-footer">
+      <div class="page-footer__meta">
+        <p>© 2026. Все права защищены</p>
+        <p class="page-footer__company">ИП Ильченко Денис Юрьевич<br>ИНН: 237300809600</p>
+      </div>
+      <nav class="page-footer__links" aria-label="Юридические документы">
+        <a href="https://topcheese.online/politconf" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+        <a href="https://topcheese.online/oferta" target="_blank" rel="noopener noreferrer">Публичная оферта</a>
+        <button class="cookie-footer-link" type="button" data-cookie-settings>Настройки cookie</button>
+      </nav>
+    </footer>
   </div>
+  <dialog class="cookie-dialog" data-cookie-dialog aria-labelledby="cookie-dialog-title">
+    <form>
+      <h2 id="cookie-dialog-title">Настройки cookie</h2>
+      <p class="cookie-settings-note">Ваш выбор сохраняется для сайта клуба.</p>
+      <label class="cookie-category">
+        <span class="cookie-category__label">Необходимые<small>Всегда включены</small></span>
+        <span class="cookie-switch"><input type="checkbox" name="necessary" role="switch" checked disabled><span aria-hidden="true"></span></span>
+      </label>
+      <label class="cookie-category">
+        <span class="cookie-category__label">Аналитика</span>
+        <span class="cookie-switch"><input type="checkbox" name="analytics" role="switch"><span aria-hidden="true"></span></span>
+      </label>
+      <label class="cookie-category">
+        <span class="cookie-category__label">Маркетинг</span>
+        <span class="cookie-switch"><input type="checkbox" name="marketing" role="switch"><span aria-hidden="true"></span></span>
+      </label>
+      <div class="cookie-actions">
+        <button class="cookie-button cookie-button--secondary" type="submit" value="save">СОХРАНИТЬ</button>
+        <button class="cookie-button cookie-button--primary" type="submit" value="all">ПРИНЯТЬ</button>
+      </div>
+      <p class="cookie-error" data-cookie-error role="status" hidden>Не удалось сохранить выбор. Проверьте, разрешено ли сохранение данных сайта в браузере, и попробуйте ещё раз.</p>
+    </form>
+  </dialog>
 </body>
 </html>

@@ -3,6 +3,48 @@ const assert = require('node:assert/strict');
 const { chromium } = require('playwright');
 const url = process.env.WELCOME_TEST_URL || 'http://localhost:8791/welcome/';
 
+test('footer documents and cookie settings are shared with the club without loading trackers', async () => {
+  const browser = await chromium.launch();
+  try {
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    page.setDefaultTimeout(5000);
+    const external = [], errors = [];
+    page.on('request', request => { if (!request.url().startsWith(new URL(url).origin)) external.push(request.url()); });
+    page.on('pageerror', error => errors.push(error.message));
+    await page.goto(url);
+    const footer = page.getByRole('contentinfo');
+    assert.equal(await footer.getByRole('link', { name: 'Публичная оферта' }).getAttribute('href'), 'https://topcheese.online/oferta');
+    assert.equal(await footer.getByRole('link', { name: 'Политика конфиденциальности' }).getAttribute('href'), 'https://topcheese.online/politconf');
+    assert.match(await footer.innerText(), /ИП Ильченко Денис Юрьевич/);
+    assert.match(await footer.innerText(), /237300809600/);
+    await footer.getByRole('button', { name: 'Настройки cookie' }).click();
+    const dialog = page.getByRole('dialog');
+    assert.equal(await dialog.isVisible(), true);
+    assert.equal(await dialog.getByRole('switch', { name: 'Аналитика' }).isChecked(), true);
+    await dialog.getByRole('switch', { name: 'Аналитика' }).uncheck();
+    await dialog.getByRole('switch', { name: 'Маркетинг' }).uncheck();
+    await dialog.getByRole('button', { name: 'СОХРАНИТЬ', exact: true }).click();
+    assert.equal(await dialog.isVisible(), false);
+    await page.reload();
+    await footer.getByRole('button', { name: 'Настройки cookie' }).click();
+    assert.equal(await dialog.getByRole('switch', { name: 'Аналитика' }).isChecked(), false);
+    assert.equal(await dialog.getByRole('switch', { name: 'Маркетинг' }).isChecked(), false);
+    await page.keyboard.press('Escape');
+    assert.equal(await footer.getByRole('button', { name: 'Настройки cookie' }).evaluate(el => el === document.activeElement), true);
+    assert.deepEqual(external, []);
+    assert.deepEqual(errors, []);
+
+    // A choice made on /welcome must apply to the existing landing too.
+    await page.route('**/*', route => route.request().url().startsWith(new URL(url).origin) ? route.continue() : route.abort());
+    await page.goto(new URL('/club-prototype/', url).href);
+    assert.equal(await page.locator('[data-cookie-banner]').isVisible(), false);
+    await page.locator('[data-cookie-settings]').click();
+    assert.equal(await page.getByRole('switch', { name: 'Аналитика' }).isChecked(), false);
+    assert.equal(await page.getByRole('switch', { name: 'Маркетинг' }).isChecked(), false);
+    await page.close();
+  } finally { await browser.close(); }
+});
+
 test('responsive onboarding defaults, links and placeholders work without analytics', async () => {
   const browser = await chromium.launch();
   try {
