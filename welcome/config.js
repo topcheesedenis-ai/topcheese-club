@@ -11,8 +11,8 @@ window.CLUB_WELCOME = {
   videos: {
     desktop: {
       title: "Как войти с компьютера",
-      // Вставьте только https://…/video_ext.php?… из кода встраивания VK.
-      embedUrl: "",
+      // Ссылка src из кода встраивания VK.
+      embedUrl: "https://vkvideo.ru/video_ext.php?oid=-212599640&id=456239049&hash=240edae4ac390841&hd=3",
       aspectRatio: "16 / 9"
     },
     mobile: {

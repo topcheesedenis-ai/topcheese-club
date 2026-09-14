@@ -41,7 +41,7 @@
     const iframe = document.createElement('iframe');
     iframe.src = url.href;
     iframe.title = video.title;
-    iframe.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+    iframe.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock';
     iframe.allowFullscreen = true;
     panel.append(iframe);
     placeholder.hidden = true;
